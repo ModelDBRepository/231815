@@ -1,0 +1,18 @@
+strdef vs_str
+xpanel("Dan et al 2018")
+  xlabel("Select a prototypical cell")
+  xbutton("VS1", "{vs_str=\"vs1_with_biophysics.hoc\" load_cell(vs_str)}")
+  xbutton("VS2", "{vs_str=\"vs2_with_biophysics.hoc\" load_cell(vs_str)}")
+  xbutton("VS3", "{vs_str=\"vs3_with_biophysics.hoc\" load_cell(vs_str)}")
+  xbutton("VS4", "{vs_str=\"vs4_with_biophysics.hoc\" load_cell(vs_str)}")
+  xbutton("VS5", "{vs_str=\"vs5_with_biophysics.hoc\" load_cell(vs_str)}")
+  xbutton("VS9", "{vs_str=\"vs9_with_biophysics.hoc\" load_cell(vs_str)}")
+  xlabel("It's ok to select a different cells after a cell has been selected")
+  xbutton("Quit","quit()")
+xpanel()
+
+proc load_cell() {
+  xopen($s1)
+  load_file("shape_plt.ses")
+  }
+  
