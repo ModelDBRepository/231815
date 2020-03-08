@@ -1,0 +1,3472 @@
+proc celldef() {
+  topol()
+  subsets()
+  geom()
+  biophys()
+  geom_nseg()
+}
+
+create soma[4], axon[27], dend[623]
+
+proc topol() { local i
+  connect soma[1](0), soma(0.5)
+  connect soma[2](0), soma[1](1)
+  connect soma[3](0), soma(0.5)
+  connect axon(0), soma[1](1)
+  for i = 1, 8 connect axon[i](0), axon[i-1](1)
+  connect axon[9](0), axon[7](1)
+  connect axon[10](0), axon[6](1)
+  for i = 11, 12 connect axon[i](0), axon[i-1](1)
+  connect axon[13](0), axon[11](1)
+  connect axon[14](0), axon[10](1)
+  connect axon[15](0), axon[5](1)
+  for i = 16, 17 connect axon[i](0), axon[15](1)
+  connect axon[18](0), axon[4](1)
+  connect axon[19](0), axon[3](1)
+  connect axon[20](0), axon[2](1)
+  connect axon[21](0), axon[1](1)
+  for i = 22, 23 connect axon[i](0), axon[21](1)
+  for i = 24, 25 connect axon[i](0), axon[23](1)
+  connect axon[26](0), axon(1)
+  connect dend(0), axon[26](1)
+  for i = 1, 16 connect dend[i](0), dend[i-1](1)
+  connect dend[17](0), dend[15](1)
+  connect dend[18](0), dend[14](1)
+  for i = 19, 20 connect dend[i](0), dend[18](1)
+  for i = 21, 22 connect dend[i](0), dend[20](1)
+  connect dend[23](0), dend[13](1)
+  connect dend[24](0), dend[12](1)
+  connect dend[25](0), dend[11](1)
+  for i = 26, 28 connect dend[i](0), dend[i-1](1)
+  connect dend[29](0), dend[27](1)
+  for i = 30, 31 connect dend[i](0), dend[29](1)
+  connect dend[32](0), dend[26](1)
+  connect dend[33](0), dend[25](1)
+  for i = 34, 36 connect dend[i](0), dend[i-1](1)
+  connect dend[37](0), dend[35](1)
+  connect dend[38](0), dend[34](1)
+  connect dend[39](0), dend[33](1)
+  connect dend[40](0), dend[10](1)
+  connect dend[41](0), dend[9](1)
+  connect dend[42](0), dend[8](1)
+  for i = 43, 49 connect dend[i](0), dend[i-1](1)
+  connect dend[50](0), dend[48](1)
+  connect dend[51](0), dend[47](1)
+  for i = 52, 53 connect dend[i](0), dend[i-1](1)
+  connect dend[54](0), dend[52](1)
+  connect dend[55](0), dend[51](1)
+  connect dend[56](0), dend[46](1)
+  connect dend[57](0), dend[45](1)
+  connect dend[58](0), dend[44](1)
+  connect dend[59](0), dend[43](1)
+  connect dend[60](0), dend[42](1)
+  connect dend[61](0), dend[7](1)
+  for i = 62, 63 connect dend[i](0), dend[61](1)
+  connect dend[64](0), dend[6](1)
+  for i = 65, 71 connect dend[i](0), dend[i-1](1)
+  connect dend[72](0), dend[70](1)
+  connect dend[73](0), dend[69](1)
+  connect dend[74](0), dend[68](1)
+  connect dend[75](0), dend[67](1)
+  connect dend[76](0), dend[66](1)
+  connect dend[77](0), dend[65](1)
+  for i = 78, 79 connect dend[i](0), dend[77](1)
+  connect dend[80](0), dend[64](1)
+  connect dend[81](0), dend[5](1)
+  for i = 82, 89 connect dend[i](0), dend[i-1](1)
+  connect dend[90](0), dend[88](1)
+  connect dend[91](0), dend[87](1)
+  connect dend[92](0), dend[86](1)
+  connect dend[93](0), dend[85](1)
+  connect dend[94](0), dend[84](1)
+  for i = 95, 98 connect dend[i](0), dend[i-1](1)
+  connect dend[99](0), dend[97](1)
+  connect dend[100](0), dend[96](1)
+  connect dend[101](0), dend[95](1)
+  for i = 102, 103 connect dend[i](0), dend[101](1)
+  connect dend[104](0), dend[94](1)
+  connect dend[105](0), dend[83](1)
+  for i = 106, 107 connect dend[i](0), dend[105](1)
+  connect dend[108](0), dend[82](1)
+  for i = 109, 116 connect dend[i](0), dend[i-1](1)
+  connect dend[117](0), dend[115](1)
+  connect dend[118](0), dend[114](1)
+  connect dend[119](0), dend[113](1)
+  connect dend[120](0), dend[112](1)
+  for i = 121, 122 connect dend[i](0), dend[120](1)
+  for i = 123, 124 connect dend[i](0), dend[122](1)
+  connect dend[125](0), dend[111](1)
+  for i = 126, 127 connect dend[i](0), dend[125](1)
+  connect dend[128](0), dend[110](1)
+  connect dend[129](0), dend[109](1)
+  connect dend[130](0), dend[108](1)
+  connect dend[131](0), dend[81](1)
+  for i = 132, 133 connect dend[i](0), dend[131](1)
+  connect dend[134](0), dend[4](1)
+  for i = 135, 142 connect dend[i](0), dend[i-1](1)
+  connect dend[143](0), dend[141](1)
+  connect dend[144](0), dend[140](1)
+  connect dend[145](0), dend[139](1)
+  for i = 146, 147 connect dend[i](0), dend[145](1)
+  connect dend[148](0), dend[138](1)
+  connect dend[149](0), dend[137](1)
+  connect dend[150](0), dend[136](1)
+  connect dend[151](0), dend[135](1)
+  for i = 152, 156 connect dend[i](0), dend[i-1](1)
+  connect dend[157](0), dend[155](1)
+  connect dend[158](0), dend[154](1)
+  for i = 159, 160 connect dend[i](0), dend[158](1)
+  connect dend[161](0), dend[153](1)
+  connect dend[162](0), dend[152](1)
+  for i = 163, 164 connect dend[i](0), dend[162](1)
+  connect dend[165](0), dend[151](1)
+  connect dend[166](0), dend[134](1)
+  for i = 167, 174 connect dend[i](0), dend[i-1](1)
+  connect dend[175](0), dend[173](1)
+  connect dend[176](0), dend[172](1)
+  for i = 177, 178 connect dend[i](0), dend[176](1)
+  connect dend[179](0), dend[171](1)
+  connect dend[180](0), dend[170](1)
+  for i = 181, 184 connect dend[i](0), dend[i-1](1)
+  connect dend[185](0), dend[183](1)
+  connect dend[186](0), dend[182](1)
+  connect dend[187](0), dend[181](1)
+  for i = 188, 189 connect dend[i](0), dend[187](1)
+  connect dend[190](0), dend[180](1)
+  connect dend[191](0), dend[169](1)
+  for i = 192, 193 connect dend[i](0), dend[191](1)
+  connect dend[194](0), dend[168](1)
+  connect dend[195](0), dend[167](1)
+  connect dend[196](0), dend[166](1)
+  for i = 197, 198 connect dend[i](0), dend[i-1](1)
+  connect dend[199](0), dend[197](1)
+  connect dend[200](0), dend[196](1)
+  connect dend[201](0), dend[3](1)
+  for i = 202, 211 connect dend[i](0), dend[i-1](1)
+  connect dend[212](0), dend[210](1)
+  connect dend[213](0), dend[209](1)
+  connect dend[214](0), dend[208](1)
+  for i = 215, 218 connect dend[i](0), dend[i-1](1)
+  connect dend[219](0), dend[217](1)
+  connect dend[220](0), dend[216](1)
+  for i = 221, 222 connect dend[i](0), dend[220](1)
+  connect dend[223](0), dend[215](1)
+  connect dend[224](0), dend[214](1)
+  for i = 225, 226 connect dend[i](0), dend[224](1)
+  connect dend[227](0), dend[207](1)
+  for i = 228, 230 connect dend[i](0), dend[i-1](1)
+  connect dend[231](0), dend[229](1)
+  connect dend[232](0), dend[228](1)
+  connect dend[233](0), dend[227](1)
+  for i = 234, 235 connect dend[i](0), dend[i-1](1)
+  connect dend[236](0), dend[234](1)
+  connect dend[237](0), dend[233](1)
+  for i = 238, 239 connect dend[i](0), dend[237](1)
+  connect dend[240](0), dend[206](1)
+  for i = 241, 243 connect dend[i](0), dend[i-1](1)
+  connect dend[244](0), dend[242](1)
+  connect dend[245](0), dend[241](1)
+  for i = 246, 247 connect dend[i](0), dend[245](1)
+  connect dend[248](0), dend[240](1)
+  connect dend[249](0), dend[205](1)
+  for i = 250, 252 connect dend[i](0), dend[i-1](1)
+  connect dend[253](0), dend[251](1)
+  connect dend[254](0), dend[250](1)
+  for i = 255, 256 connect dend[i](0), dend[254](1)
+  connect dend[257](0), dend[249](1)
+  connect dend[258](0), dend[204](1)
+  for i = 259, 260 connect dend[i](0), dend[i-1](1)
+  connect dend[261](0), dend[259](1)
+  connect dend[262](0), dend[258](1)
+  for i = 263, 264 connect dend[i](0), dend[262](1)
+  connect dend[265](0), dend[203](1)
+  for i = 266, 268 connect dend[i](0), dend[i-1](1)
+  connect dend[269](0), dend[267](1)
+  connect dend[270](0), dend[266](1)
+  connect dend[271](0), dend[265](1)
+  connect dend[272](0), dend[202](1)
+  connect dend[273](0), dend[201](1)
+  for i = 274, 275 connect dend[i](0), dend[i-1](1)
+  connect dend[276](0), dend[274](1)
+  connect dend[277](0), dend[273](1)
+  for i = 278, 279 connect dend[i](0), dend[277](1)
+  connect dend[280](0), dend[2](1)
+  for i = 281, 290 connect dend[i](0), dend[i-1](1)
+  connect dend[291](0), dend[289](1)
+  connect dend[292](0), dend[288](1)
+  connect dend[293](0), dend[287](1)
+  for i = 294, 296 connect dend[i](0), dend[i-1](1)
+  connect dend[297](0), dend[295](1)
+  connect dend[298](0), dend[294](1)
+  connect dend[299](0), dend[293](1)
+  connect dend[300](0), dend[286](1)
+  for i = 301, 303 connect dend[i](0), dend[i-1](1)
+  connect dend[304](0), dend[302](1)
+  connect dend[305](0), dend[301](1)
+  for i = 306, 307 connect dend[i](0), dend[305](1)
+  connect dend[308](0), dend[300](1)
+  connect dend[309](0), dend[285](1)
+  for i = 310, 313 connect dend[i](0), dend[i-1](1)
+  connect dend[314](0), dend[312](1)
+  connect dend[315](0), dend[311](1)
+  topol_1()
+}
+proc topol_1() {
+  connect dend[316](0), dend[310](1)
+  connect dend[317](0), dend[309](1)
+  connect dend[318](0), dend[284](1)
+  for i = 319, 325 connect dend[i](0), dend[i-1](1)
+  connect dend[326](0), dend[324](1)
+  connect dend[327](0), dend[323](1)
+  for i = 328, 330 connect dend[i](0), dend[i-1](1)
+  connect dend[331](0), dend[329](1)
+  connect dend[332](0), dend[328](1)
+  connect dend[333](0), dend[327](1)
+  connect dend[334](0), dend[322](1)
+  for i = 335, 336 connect dend[i](0), dend[334](1)
+  connect dend[337](0), dend[321](1)
+  connect dend[338](0), dend[320](1)
+  connect dend[339](0), dend[319](1)
+  for i = 340, 341 connect dend[i](0), dend[339](1)
+  connect dend[342](0), dend[318](1)
+  connect dend[343](0), dend[283](1)
+  connect dend[344](0), dend[282](1)
+  for i = 345, 346 connect dend[i](0), dend[344](1)
+  connect dend[347](0), dend[281](1)
+  for i = 348, 354 connect dend[i](0), dend[i-1](1)
+  connect dend[355](0), dend[353](1)
+  connect dend[356](0), dend[352](1)
+  connect dend[357](0), dend[351](1)
+  for i = 358, 359 connect dend[i](0), dend[357](1)
+  connect dend[360](0), dend[350](1)
+  for i = 361, 362 connect dend[i](0), dend[360](1)
+  connect dend[363](0), dend[349](1)
+  connect dend[364](0), dend[348](1)
+  for i = 365, 370 connect dend[i](0), dend[i-1](1)
+  connect dend[371](0), dend[369](1)
+  connect dend[372](0), dend[368](1)
+  connect dend[373](0), dend[367](1)
+  connect dend[374](0), dend[366](1)
+  connect dend[375](0), dend[365](1)
+  for i = 376, 378 connect dend[i](0), dend[i-1](1)
+  connect dend[379](0), dend[377](1)
+  connect dend[380](0), dend[376](1)
+  for i = 381, 382 connect dend[i](0), dend[i-1](1)
+  connect dend[383](0), dend[381](1)
+  connect dend[384](0), dend[380](1)
+  connect dend[385](0), dend[375](1)
+  connect dend[386](0), dend[364](1)
+  connect dend[387](0), dend[347](1)
+  for i = 388, 389 connect dend[i](0), dend[387](1)
+  connect dend[390](0), dend[280](1)
+  for i = 391, 402 connect dend[i](0), dend[i-1](1)
+  connect dend[403](0), dend[401](1)
+  connect dend[404](0), dend[400](1)
+  connect dend[405](0), dend[399](1)
+  connect dend[406](0), dend[398](1)
+  for i = 407, 408 connect dend[i](0), dend[406](1)
+  connect dend[409](0), dend[397](1)
+  for i = 410, 417 connect dend[i](0), dend[i-1](1)
+  connect dend[418](0), dend[416](1)
+  connect dend[419](0), dend[415](1)
+  connect dend[420](0), dend[414](1)
+  connect dend[421](0), dend[413](1)
+  connect dend[422](0), dend[412](1)
+  connect dend[423](0), dend[411](1)
+  connect dend[424](0), dend[410](1)
+  for i = 425, 426 connect dend[i](0), dend[424](1)
+  connect dend[427](0), dend[409](1)
+  connect dend[428](0), dend[396](1)
+  for i = 429, 430 connect dend[i](0), dend[i-1](1)
+  connect dend[431](0), dend[429](1)
+  connect dend[432](0), dend[428](1)
+  connect dend[433](0), dend[395](1)
+  for i = 434, 435 connect dend[i](0), dend[433](1)
+  for i = 436, 437 connect dend[i](0), dend[i-1](1)
+  connect dend[438](0), dend[436](1)
+  connect dend[439](0), dend[435](1)
+  connect dend[440](0), dend[394](1)
+  for i = 441, 443 connect dend[i](0), dend[i-1](1)
+  connect dend[444](0), dend[442](1)
+  connect dend[445](0), dend[441](1)
+  connect dend[446](0), dend[440](1)
+  connect dend[447](0), dend[393](1)
+  connect dend[448](0), dend[392](1)
+  for i = 449, 450 connect dend[i](0), dend[448](1)
+  connect dend[451](0), dend[391](1)
+  connect dend[452](0), dend[390](1)
+  for i = 453, 455 connect dend[i](0), dend[i-1](1)
+  connect dend[456](0), dend[454](1)
+  for i = 457, 458 connect dend[i](0), dend[456](1)
+  connect dend[459](0), dend[453](1)
+  for i = 460, 464 connect dend[i](0), dend[i-1](1)
+  connect dend[465](0), dend[463](1)
+  connect dend[466](0), dend[462](1)
+  connect dend[467](0), dend[461](1)
+  for i = 468, 469 connect dend[i](0), dend[i-1](1)
+  connect dend[470](0), dend[468](1)
+  connect dend[471](0), dend[467](1)
+  connect dend[472](0), dend[460](1)
+  for i = 473, 474 connect dend[i](0), dend[i-1](1)
+  connect dend[475](0), dend[473](1)
+  connect dend[476](0), dend[472](1)
+  connect dend[477](0), dend[459](1)
+  connect dend[478](0), dend[452](1)
+  connect dend[479](0), dend[1](1)
+  for i = 480, 489 connect dend[i](0), dend[i-1](1)
+  connect dend[490](0), dend[488](1)
+  connect dend[491](0), dend[487](1)
+  connect dend[492](0), dend[486](1)
+  connect dend[493](0), dend[485](1)
+  for i = 494, 499 connect dend[i](0), dend[i-1](1)
+  connect dend[500](0), dend[498](1)
+  connect dend[501](0), dend[497](1)
+  connect dend[502](0), dend[496](1)
+  connect dend[503](0), dend[495](1)
+  for i = 504, 505 connect dend[i](0), dend[503](1)
+  connect dend[506](0), dend[494](1)
+  for i = 507, 511 connect dend[i](0), dend[i-1](1)
+  connect dend[512](0), dend[510](1)
+  connect dend[513](0), dend[509](1)
+  for i = 514, 515 connect dend[i](0), dend[513](1)
+  connect dend[516](0), dend[508](1)
+  connect dend[517](0), dend[507](1)
+  connect dend[518](0), dend[506](1)
+  connect dend[519](0), dend[493](1)
+  for i = 520, 521 connect dend[i](0), dend[i-1](1)
+  connect dend[522](0), dend[520](1)
+  connect dend[523](0), dend[519](1)
+  connect dend[524](0), dend[484](1)
+  for i = 525, 526 connect dend[i](0), dend[524](1)
+  connect dend[527](0), dend[483](1)
+  for i = 528, 531 connect dend[i](0), dend[i-1](1)
+  connect dend[532](0), dend[530](1)
+  for i = 533, 534 connect dend[i](0), dend[532](1)
+  connect dend[535](0), dend[529](1)
+  connect dend[536](0), dend[528](1)
+  connect dend[537](0), dend[527](1)
+  connect dend[538](0), dend[482](1)
+  connect dend[539](0), dend[481](1)
+  connect dend[540](0), dend[480](1)
+  for i = 541, 544 connect dend[i](0), dend[i-1](1)
+  connect dend[545](0), dend[543](1)
+  connect dend[546](0), dend[542](1)
+  connect dend[547](0), dend[541](1)
+  connect dend[548](0), dend[540](1)
+  connect dend[549](0), dend[479](1)
+  for i = 550, 551 connect dend[i](0), dend[i-1](1)
+  connect dend[552](0), dend[550](1)
+  connect dend[553](0), dend[549](1)
+  connect dend[554](0), dend(1)
+  for i = 555, 568 connect dend[i](0), dend[i-1](1)
+  connect dend[569](0), dend[567](1)
+  connect dend[570](0), dend[566](1)
+  for i = 571, 572 connect dend[i](0), dend[570](1)
+  connect dend[573](0), dend[565](1)
+  connect dend[574](0), dend[564](1)
+  connect dend[575](0), dend[563](1)
+  for i = 576, 577 connect dend[i](0), dend[575](1)
+  for i = 578, 579 connect dend[i](0), dend[577](1)
+  connect dend[580](0), dend[562](1)
+  for i = 581, 582 connect dend[i](0), dend[i-1](1)
+  connect dend[583](0), dend[581](1)
+  connect dend[584](0), dend[580](1)
+  connect dend[585](0), dend[561](1)
+  for i = 586, 587 connect dend[i](0), dend[585](1)
+  connect dend[588](0), dend[560](1)
+  for i = 589, 590 connect dend[i](0), dend[588](1)
+  connect dend[591](0), dend[559](1)
+  connect dend[592](0), dend[558](1)
+  for i = 593, 597 connect dend[i](0), dend[i-1](1)
+  connect dend[598](0), dend[596](1)
+  connect dend[599](0), dend[595](1)
+  connect dend[600](0), dend[594](1)
+  connect dend[601](0), dend[593](1)
+  for i = 602, 603 connect dend[i](0), dend[601](1)
+  connect dend[604](0), dend[592](1)
+  connect dend[605](0), dend[557](1)
+  for i = 606, 611 connect dend[i](0), dend[i-1](1)
+  connect dend[612](0), dend[610](1)
+  connect dend[613](0), dend[609](1)
+  connect dend[614](0), dend[608](1)
+  connect dend[615](0), dend[607](1)
+  connect dend[616](0), dend[606](1)
+  connect dend[617](0), dend[605](1)
+  connect dend[618](0), dend[556](1)
+  for i = 619, 620 connect dend[i](0), dend[618](1)
+  connect dend[621](0), dend[555](1)
+  connect dend[622](0), dend[554](1)
+  basic_shape()
+}
+proc shape3d_1() {
+  soma {pt3dclear()
+	pt3dadd(-10.751, 196.144, -45.05, 17.322)
+	pt3dadd(-2.09, 196.144, -45.05, 17.322)
+	pt3dadd(6.571, 196.144, -45.05, 17.322)
+  }
+  soma[1] {pt3dclear()
+	pt3dstyle(1, -2.09, 196.144, -45.05)
+	pt3dadd(-0.253, 196.228, -45.15, 17.322)
+	pt3dadd(1.945, 194.826, -42.65, 16.536)
+	pt3dadd(2.658, 193.062, -40.15, 15.748)
+	pt3dadd(4.434, 192.566, -44.05, 14.174)
+	pt3dadd(7.357, 191.502, -42.35, 12.598)
+	pt3dadd(9.037, 190.74, -43.95, 11.024)
+	pt3dadd(10.347, 189.586, -41.75, 10.236)
+	pt3dadd(11.917, 188.111, -43.85, 8.662)
+	pt3dadd(12.648, 187.017, -43.15, 6.3)
+	pt3dadd(13.198, 185.839, -44.35, 4.724)
+	pt3dadd(14.599, 184.727, -44.35, 3.15)
+	pt3dadd(16.38, 182.799, -45.55, 1.574)
+	pt3dadd(19.641, 177.7, -42.95, 1.574)
+	pt3dadd(27.832, 176.223, -38.15, 1.574)
+	pt3dadd(34.373, 170.005, -39.75, 1.574)
+	pt3dadd(39.894, 165.738, -42.05, 1.574)
+	pt3dadd(48.048, 159.61, -44.35, 2.362)
+	pt3dadd(50.807, 156.452, -41.064, 2.362)
+  }
+  soma[2] {pt3dclear()
+	pt3dadd(50.807, 156.452, -41.064, 2.362)
+	pt3dadd(53.253, 153.652, -38.15, 2.362)
+  }
+  axon {pt3dclear()
+	pt3dadd(50.807, 156.452, -41.064, 10.236)
+	pt3dadd(61.612, 146.847, -43.65, 10.236)
+  }
+  axon[1] {pt3dclear()
+	pt3dadd(61.612, 146.847, -43.65, 10.236)
+	pt3dadd(52.484, 145.128, -48.55, 10.236)
+	pt3dadd(44.148, 147.861, -49.85, 10.236)
+	pt3dadd(23.243, 142.527, -48.55, 9.448)
+	pt3dadd(6.386, 134.666, -46.35, 9.448)
+	pt3dadd(-4.164, 128.422, -43.05, 8.662)
+	pt3dadd(-22.08, 116.206, -35.35, 10.236)
+	pt3dadd(-35.069, 114.011, -30.35, 11.024)
+	pt3dadd(-55.895, 106.617, -31.45, 9.448)
+	pt3dadd(-74.904, 95.325, -35.55, 11.024)
+	pt3dadd(-92.451, 83.502, -35.05, 10.236)
+	pt3dadd(-100.065, 78.296, -37.75, 10.236)
+	pt3dadd(-108.766, 72.584, -36.65, 7.874)
+	pt3dadd(-114.374, 67.1, -38.65, 8.662)
+	pt3dadd(-124.284, 58.066, -39.75, 7.874)
+	pt3dadd(-137.682, 44.205, -37.05, 8.662)
+	pt3dadd(-155.762, 27.609, -37.15, 11.812)
+	pt3dadd(-169.555, 22.17, -39.95, 10.236)
+	pt3dadd(-175.603, 20.232, -37.65, 7.874)
+	pt3dadd(-188.388, 14.05, -37.85, 10.236)
+	pt3dadd(-208.429, 5.918, -37.05, 9.448)
+	pt3dadd(-218.278, 2.429, -34.85, 7.086)
+	pt3dadd(-226.017, -0.849, -32.55, 4.724)
+	pt3dadd(-231.587, -0.025, -34.05, 4.724)
+	pt3dadd(-239.066, -0.313, -34.05, 6.3)
+  }
+  axon[2] {pt3dclear()
+	pt3dadd(-239.066, -0.313, -34.05, 6.3)
+	pt3dadd(-246.395, -1.634, -36.45, 4.724)
+	pt3dadd(-254.804, 0.072, -34.55, 5.512)
+  }
+  axon[3] {pt3dclear()
+	pt3dadd(-254.804, 0.072, -34.55, 5.512)
+	pt3dadd(-261.255, 1.367, -34.95, 5.512)
+  }
+  axon[4] {pt3dclear()
+	pt3dadd(-261.255, 1.367, -34.95, 5.512)
+	pt3dadd(-267.791, 4.498, -36.85, 3.936)
+  }
+  axon[5] {pt3dclear()
+	pt3dadd(-267.791, 4.498, -36.85, 3.936)
+	pt3dadd(-276.042, 7.05, -37.75, 3.936)
+	pt3dadd(-280.827, 8.791, -38.55, 3.15)
+	pt3dadd(-286.886, 9.717, -37.45, 3.15)
+  }
+  axon[6] {pt3dclear()
+	pt3dadd(-286.886, 9.717, -37.45, 3.15)
+	pt3dadd(-301.572, 9.269, -35.55, 2.362)
+	pt3dadd(-311.619, 8.335, -39.05, 2.362)
+  }
+  axon[7] {pt3dclear()
+	pt3dadd(-311.619, 8.335, -39.05, 2.362)
+	pt3dadd(-317.444, 4.736, -33.15, 1.574)
+	pt3dadd(-325.366, -1.937, -30.75, 1.574)
+	pt3dadd(-330.302, -4.128, -27.75, 1.574)
+  }
+  axon[8] {pt3dclear()
+	pt3dadd(-330.302, -4.128, -27.75, 1.574)
+	pt3dadd(-332.9, -5.892, -29.15, 1.574)
+  }
+  axon[9] {pt3dclear()
+	pt3dadd(-330.302, -4.128, -27.75, 1.574)
+	pt3dadd(-330.902, -9.704, -26.15, 0.788)
+  }
+  axon[10] {pt3dclear()
+	pt3dadd(-311.619, 8.335, -39.05, 2.362)
+	pt3dadd(-316.348, 10.433, -36.55, 1.574)
+	pt3dadd(-324.086, 13.776, -41.65, 1.574)
+  }
+  axon[11] {pt3dclear()
+	pt3dadd(-324.086, 13.776, -41.65, 1.574)
+	pt3dadd(-336.828, 30.453, -42.85, 1.574)
+	pt3dadd(-336.949, 30.949, -42.85, 1.574)
+  }
+  axon[12] {pt3dclear()
+	pt3dadd(-336.949, 30.949, -42.85, 1.574)
+	pt3dadd(-342.034, 38.067, -41.55, 0.788)
+	pt3dadd(-343.5, 43.341, -41.55, 0.788)
+  }
+  axon[13] {pt3dclear()
+	pt3dadd(-336.949, 30.949, -42.85, 1.574)
+	pt3dadd(-344.12, 32.129, -47.45, 1.574)
+	pt3dadd(-351.562, 34.838, -52.65, 0.788)
+	pt3dadd(-360.55, 36.604, -55.15, 0.788)
+	pt3dadd(-364.176, 34.914, -55.65, 0.788)
+	pt3dadd(-373.944, 34.331, -57.55, 1.574)
+  }
+  axon[14] {pt3dclear()
+	pt3dadd(-324.086, 13.776, -41.65, 1.574)
+	pt3dadd(-330.514, 12.654, -41.05, 0.788)
+	pt3dadd(-338.537, 13.768, -44.35, 0.788)
+  }
+  axon[15] {pt3dclear()
+	pt3dadd(-286.886, 9.717, -37.45, 3.15)
+	pt3dadd(-289.168, 14.611, -38.95, 1.574)
+	pt3dadd(-297.043, 24.4, -38.95, 1.574)
+	pt3dadd(-305.595, 30.674, -39.25, 1.574)
+  }
+  axon[16] {pt3dclear()
+	pt3dadd(-305.595, 30.674, -39.25, 1.574)
+	pt3dadd(-312.239, 36.403, -40.45, 0.788)
+	pt3dadd(-318.054, 46.27, -39.65, 0.788)
+  }
+  axon[17] {pt3dclear()
+	pt3dadd(-305.595, 30.674, -39.25, 1.574)
+	pt3dadd(-316.445, 33.118, -34.95, 0.788)
+  }
+  axon[18] {pt3dclear()
+	pt3dadd(-267.791, 4.498, -36.85, 3.936)
+	pt3dadd(-268.69, 9.265, -36.85, 0.788)
+  }
+  axon[19] {pt3dclear()
+	pt3dadd(-261.255, 1.367, -34.95, 5.512)
+	pt3dadd(-262.231, 11.504, -35.35, 1.574)
+	pt3dadd(-264.386, 16.126, -36.95, 0.788)
+	pt3dadd(-265.883, 21.938, -33.55, 0.788)
+	pt3dadd(-269.392, 22.84, -33.55, 0.788)
+  }
+  axon[20] {pt3dclear()
+	pt3dadd(-254.804, 0.072, -34.55, 5.512)
+	pt3dadd(-254.174, 3.455, -35.65, 2.362)
+	pt3dadd(-255.906, 10.482, -33.85, 1.574)
+	pt3dadd(-259.432, 18.988, -33.35, 1.574)
+	pt3dadd(-262.372, 26.003, -27.25, 1.574)
+  }
+  axon[21] {pt3dclear()
+	pt3dadd(-239.066, -0.313, -34.05, 6.3)
+	pt3dadd(-242.995, 13.081, -31.15, 2.362)
+  }
+  axon[22] {pt3dclear()
+	pt3dadd(-242.995, 13.081, -31.15, 2.362)
+	pt3dadd(-247.102, 16.683, -32.95, 1.574)
+	pt3dadd(-251.499, 21.143, -30.65, 1.574)
+  }
+  axon[23] {pt3dclear()
+	pt3dadd(-242.995, 13.081, -31.15, 2.362)
+	pt3dadd(-241.997, 18.512, -32.65, 1.574)
+	pt3dadd(-242.496, 26.444, -30.15, 1.574)
+  }
+  axon[24] {pt3dclear()
+	pt3dadd(-242.496, 26.444, -30.15, 1.574)
+	pt3dadd(-248.426, 33.72, -31.45, 0.788)
+	pt3dadd(-253.844, 38.476, -29.55, 0.788)
+  }
+  axon[25] {pt3dclear()
+	pt3dadd(-242.496, 26.444, -30.15, 1.574)
+	pt3dadd(-238.122, 26.056, -26.45, 0.788)
+	pt3dadd(-233.151, 22.968, -26.45, 0.788)
+  }
+  axon[26] {pt3dclear()
+	pt3dadd(61.612, 146.847, -43.65, 10.236)
+	pt3dadd(68.512, 147.195, -42.45, 8.662)
+  }
+  dend {pt3dclear()
+	pt3dadd(68.512, 147.195, -42.45, 8.662)
+	pt3dadd(76.111, 145.332, -39.55, 7.874)
+	pt3dadd(77.374, 145.701, -39.55, 7)
+	pt3dadd(77.108, 145.797, -41.45, 7.086)
+  }
+  dend[1] {pt3dclear()
+	pt3dadd(77.108, 145.797, -41.45, 7.086)
+	pt3dadd(78.189, 146.081, -34.45, 7.874)
+	pt3dadd(86.882, 143.293, -34.75, 8.662)
+	pt3dadd(93.2, 142.047, -34.75, 7.874)
+	pt3dadd(101.832, 137.024, -31.05, 15.748)
+  }
+  dend[2] {pt3dclear()
+	pt3dadd(101.832, 137.024, -31.05, 15.748)
+	pt3dadd(108.324, 130.673, -31.05, 11.812)
+	pt3dadd(119.831, 122.798, -34.75, 11.812)
+	pt3dadd(143.865, 111.717, -32.65, 12.598)
+	pt3dadd(165.197, 91.763, -31.65, 11.812)
+  }
+  dend[3] {pt3dclear()
+	pt3dadd(165.197, 91.763, -31.65, 11.812)
+	pt3dadd(165.994, 91.472, -31.65, 8.662)
+	pt3dadd(178.807, 67.546, -33.75, 7.874)
+	pt3dadd(179.245, 59.033, -34.55, 8.662)
+	pt3dadd(181.912, 46.926, -38.35, 8.662)
+	pt3dadd(183.505, 39.724, -41.15, 9.448)
+	pt3dadd(187.059, 25.714, -42.45, 7.874)
+	pt3dadd(189.052, 23.333, -42.45, 6.3)
+	pt3dadd(193.085, 13.738, -43.15, 11.024)
+	pt3dadd(199.878, 5.321, -43.45, 10.236)
+  }
+  dend[4] {pt3dclear()
+	pt3dadd(199.878, 5.321, -43.45, 10.236)
+	pt3dadd(200.478, -10.399, -41.75, 6.3)
+	pt3dadd(201.557, -18.392, -43.75, 6.3)
+	pt3dadd(200.914, -25.532, -44.65, 7.086)
+	pt3dadd(201.474, -32.884, -44.05, 5.512)
+	pt3dadd(201.453, -41.831, -48.05, 7.086)
+	pt3dadd(201.36, -50.15, -48.35, 9.448)
+  }
+  dend[5] {pt3dclear()
+	pt3dadd(201.36, -50.15, -48.35, 9.448)
+	pt3dadd(201.179, -50.235, -48.35, 8.662)
+	pt3dadd(194.044, -72.319, -52.25, 7.086)
+  }
+  dend[6] {pt3dclear()
+	pt3dadd(194.044, -72.319, -52.25, 7.086)
+	pt3dadd(194.189, -71.921, -52.25, 5.512)
+	pt3dadd(187.702, -86.641, -54.25, 3.15)
+	pt3dadd(181.676, -99.272, -55.05, 3.15)
+	pt3dadd(177.921, -110.622, -56.75, 3.936)
+	pt3dadd(176.425, -121.139, -57.45, 4.724)
+	pt3dadd(175.359, -132.339, -57.85, 3.15)
+  }
+  dend[7] {pt3dclear()
+	pt3dadd(175.359, -132.339, -57.85, 3.15)
+	pt3dadd(174.984, -132.955, -57.85, 3.15)
+	pt3dadd(174.85, -137.873, -60.75, 3.15)
+  }
+  dend[8] {pt3dclear()
+	pt3dadd(174.85, -137.873, -60.75, 3.15)
+	pt3dadd(174.1, -140.76, -60.75, 3.15)
+	pt3dadd(172.074, -147.774, -61.45, 3.936)
+  }
+  dend[9] {pt3dclear()
+	pt3dadd(172.074, -147.774, -61.45, 3.936)
+	pt3dadd(168.851, -157.662, -60.55, 2.362)
+	pt3dadd(164.336, -164.071, -63.75, 3.936)
+	pt3dadd(162.717, -166.04, -61.35, 3.936)
+  }
+  dend[10] {pt3dclear()
+	pt3dadd(162.717, -166.04, -61.35, 3.936)
+	pt3dadd(158.117, -173.922, -64.15, 2.362)
+  }
+  dend[11] {pt3dclear()
+	pt3dadd(158.117, -173.922, -64.15, 2.362)
+	pt3dadd(155.216, -178.585, -65.65, 3.15)
+  }
+  dend[12] {pt3dclear()
+	pt3dadd(155.216, -178.585, -65.65, 3.15)
+	pt3dadd(151.645, -181.574, -66.65, 2.362)
+	pt3dadd(149.813, -184.745, -66.65, 2.362)
+  }
+  dend[13] {pt3dclear()
+	pt3dadd(149.813, -184.745, -66.65, 2.362)
+	pt3dadd(146.374, -189.438, -66.05, 1.574)
+	pt3dadd(144.011, -192.416, -64.65, 2.362)
+  }
+  dend[14] {pt3dclear()
+	pt3dadd(144.011, -192.416, -64.65, 2.362)
+	pt3dadd(141.213, -194.934, -67.85, 2.362)
+  }
+  dend[15] {pt3dclear()
+	pt3dadd(141.213, -194.934, -67.85, 2.362)
+	pt3dadd(137.574, -203.693, -67.45, 1.574)
+	pt3dadd(135.361, -209.359, -68.45, 1.574)
+  }
+  dend[16] {pt3dclear()
+	pt3dadd(135.361, -209.359, -68.45, 1.574)
+	pt3dadd(134.725, -214.621, -68.65, 1.574)
+  }
+  dend[17] {pt3dclear()
+	pt3dadd(135.361, -209.359, -68.45, 1.574)
+	pt3dadd(132.661, -208.301, -68.45, 0.788)
+  }
+  dend[18] {pt3dclear()
+	pt3dadd(141.213, -194.934, -67.85, 2.362)
+	pt3dadd(140.884, -205.349, -69.95, 2.362)
+  }
+  dend[19] {pt3dclear()
+	pt3dadd(140.884, -205.349, -69.95, 2.362)
+  }
+}
+proc shape3d_2() {
+  dend[19] {	pt3dadd(137.728, -212.779, -69.95, 1.574)
+  }
+  dend[20] {pt3dclear()
+	pt3dadd(140.884, -205.349, -69.95, 2.362)
+	pt3dadd(144.393, -209.561, -68.55, 1.574)
+  }
+  dend[21] {pt3dclear()
+	pt3dadd(144.393, -209.561, -68.55, 1.574)
+	pt3dadd(147.062, -211.737, -70.15, 1.574)
+	pt3dadd(150.977, -212.56, -72.15, 0.788)
+  }
+  dend[22] {pt3dclear()
+	pt3dadd(144.393, -209.561, -68.55, 1.574)
+	pt3dadd(143.305, -211.724, -68.65, 0.788)
+  }
+  dend[23] {pt3dclear()
+	pt3dadd(144.011, -192.416, -64.65, 2.362)
+	pt3dadd(138.103, -190.868, -59.55, 0.788)
+  }
+  dend[24] {pt3dclear()
+	pt3dadd(149.813, -184.745, -66.65, 2.362)
+	pt3dadd(154.772, -186.626, -60.75, 0.788)
+  }
+  dend[25] {pt3dclear()
+	pt3dadd(155.216, -178.585, -65.65, 3.15)
+	pt3dadd(158.53, -188.294, -67.35, 2.362)
+  }
+  dend[26] {pt3dclear()
+	pt3dadd(158.53, -188.294, -67.35, 2.362)
+	pt3dadd(157.392, -193.9, -68.65, 1.574)
+  }
+  dend[27] {pt3dclear()
+	pt3dadd(157.392, -193.9, -68.65, 1.574)
+	pt3dadd(158.762, -197.785, -69.35, 1.574)
+  }
+  dend[28] {pt3dclear()
+	pt3dadd(158.762, -197.785, -69.35, 1.574)
+	pt3dadd(162.519, -201.109, -72.55, 0.788)
+  }
+  dend[29] {pt3dclear()
+	pt3dadd(158.762, -197.785, -69.35, 1.574)
+	pt3dadd(158.139, -200.944, -70.05, 0.788)
+	pt3dadd(156.35, -204.206, -69.35, 0.788)
+  }
+  dend[30] {pt3dclear()
+	pt3dadd(156.35, -204.206, -69.35, 0.788)
+	pt3dadd(155.196, -205.517, -69.35, 0.788)
+	pt3dadd(155.805, -207.77, -69.35, 0.788)
+  }
+  dend[31] {pt3dclear()
+	pt3dadd(156.35, -204.206, -69.35, 0.788)
+	pt3dadd(159.098, -206.787, -69.85, 0.788)
+  }
+  dend[32] {pt3dclear()
+	pt3dadd(157.392, -193.9, -68.65, 1.574)
+	pt3dadd(154.764, -195.126, -66.85, 0.788)
+  }
+  dend[33] {pt3dclear()
+	pt3dadd(158.53, -188.294, -67.35, 2.362)
+	pt3dadd(162.426, -189.788, -66.35, 0.788)
+  }
+  dend[34] {pt3dclear()
+	pt3dadd(162.426, -189.788, -66.35, 0.788)
+	pt3dadd(167.114, -190.139, -66.65, 0.788)
+  }
+  dend[35] {pt3dclear()
+	pt3dadd(167.114, -190.139, -66.65, 0.788)
+	pt3dadd(170.229, -195.638, -71.35, 0.788)
+  }
+  dend[36] {pt3dclear()
+	pt3dadd(170.229, -195.638, -71.35, 0.788)
+	pt3dadd(170.216, -201.051, -71.35, 0.788)
+  }
+  dend[37] {pt3dclear()
+	pt3dadd(170.229, -195.638, -71.35, 0.788)
+	pt3dadd(174.724, -196.521, -71.85, 0.788)
+  }
+  dend[38] {pt3dclear()
+	pt3dadd(167.114, -190.139, -66.65, 0.788)
+	pt3dadd(171.198, -189.669, -66.75, 0.788)
+  }
+  dend[39] {pt3dclear()
+	pt3dadd(162.426, -189.788, -66.35, 0.788)
+	pt3dadd(161.132, -192.929, -68.05, 0.788)
+  }
+  dend[40] {pt3dclear()
+	pt3dadd(158.117, -173.922, -64.15, 2.362)
+	pt3dadd(165.686, -176.903, -64.15, 0.788)
+  }
+  dend[41] {pt3dclear()
+	pt3dadd(162.717, -166.04, -61.35, 3.936)
+	pt3dadd(166.007, -171.677, -61.25, 0.788)
+	pt3dadd(169.01, -173.146, -61.25, 0.788)
+  }
+  dend[42] {pt3dclear()
+	pt3dadd(172.074, -147.774, -61.45, 3.936)
+	pt3dadd(174.024, -153.374, -61.45, 2.362)
+	pt3dadd(173.237, -157.603, -60.95, 2.362)
+  }
+  dend[43] {pt3dclear()
+	pt3dadd(173.237, -157.603, -60.95, 2.362)
+	pt3dadd(173.169, -161.717, -61.95, 2.362)
+  }
+  dend[44] {pt3dclear()
+	pt3dadd(173.169, -161.717, -61.95, 2.362)
+	pt3dadd(171.948, -165.487, -63.05, 1.574)
+  }
+  dend[45] {pt3dclear()
+	pt3dadd(171.948, -165.487, -63.05, 1.574)
+	pt3dadd(172.967, -170.749, -66.35, 1.574)
+  }
+  dend[46] {pt3dclear()
+	pt3dadd(172.967, -170.749, -66.35, 1.574)
+	pt3dadd(173.889, -177.932, -66.85, 2.362)
+  }
+  dend[47] {pt3dclear()
+	pt3dadd(173.889, -177.932, -66.85, 2.362)
+	pt3dadd(176.631, -182.391, -66.45, 2.362)
+  }
+  dend[48] {pt3dclear()
+	pt3dadd(176.631, -182.391, -66.45, 2.362)
+	pt3dadd(177.106, -189.562, -69.55, 1.574)
+  }
+  dend[49] {pt3dclear()
+	pt3dadd(177.106, -189.562, -69.55, 1.574)
+	pt3dadd(179.841, -194.245, -72.65, 1.574)
+  }
+  dend[50] {pt3dclear()
+	pt3dadd(177.106, -189.562, -69.55, 1.574)
+	pt3dadd(180.803, -190.155, -68.25, 0.788)
+  }
+  dend[51] {pt3dclear()
+	pt3dadd(176.631, -182.391, -66.45, 2.362)
+	pt3dadd(182.11, -183.257, -68.95, 1.574)
+  }
+  dend[52] {pt3dclear()
+	pt3dadd(182.11, -183.257, -68.95, 1.574)
+	pt3dadd(184.543, -189.184, -72.45, 1.574)
+	pt3dadd(186.269, -193.123, -72.15, 1.574)
+  }
+  dend[53] {pt3dclear()
+	pt3dadd(186.269, -193.123, -72.15, 1.574)
+	pt3dadd(183.732, -194.307, -70.45, 0.788)
+  }
+  dend[54] {pt3dclear()
+	pt3dadd(186.269, -193.123, -72.15, 1.574)
+	pt3dadd(188.365, -195.015, -72.15, 0.788)
+  }
+  dend[55] {pt3dclear()
+	pt3dadd(182.11, -183.257, -68.95, 1.574)
+	pt3dadd(184.847, -182.974, -69.85, 1.574)
+  }
+  dend[56] {pt3dclear()
+	pt3dadd(173.889, -177.932, -66.85, 2.362)
+	pt3dadd(171.852, -182.082, -62.75, 0.788)
+  }
+  dend[57] {pt3dclear()
+	pt3dadd(172.967, -170.749, -66.35, 1.574)
+	pt3dadd(176.833, -173.36, -61.85, 0.788)
+  }
+  dend[58] {pt3dclear()
+	pt3dadd(171.948, -165.487, -63.05, 1.574)
+	pt3dadd(175.904, -168.055, -59.05, 0.788)
+  }
+  dend[59] {pt3dclear()
+	pt3dadd(173.169, -161.717, -61.95, 2.362)
+	pt3dadd(176.721, -162.709, -62.85, 0.788)
+	pt3dadd(178.624, -161.821, -62.85, 0.788)
+  }
+  dend[60] {pt3dclear()
+	pt3dadd(173.237, -157.603, -60.95, 2.362)
+	pt3dadd(176.475, -158.631, -56.55, 0.788)
+  }
+  dend[61] {pt3dclear()
+	pt3dadd(174.85, -137.873, -60.75, 3.15)
+	pt3dadd(178.178, -140.514, -55.35, 0.788)
+  }
+  dend[62] {pt3dclear()
+	pt3dadd(178.178, -140.514, -55.35, 0.788)
+	pt3dadd(179.947, -142.889, -55.35, 0.788)
+  }
+  dend[63] {pt3dclear()
+	pt3dadd(178.178, -140.514, -55.35, 0.788)
+	pt3dadd(177.077, -143.123, -55.35, 0.788)
+  }
+  dend[64] {pt3dclear()
+	pt3dadd(175.359, -132.339, -57.85, 3.15)
+	pt3dadd(181.018, -138.086, -56.55, 1.574)
+	pt3dadd(182.032, -140.261, -56.75, 1.574)
+  }
+  dend[65] {pt3dclear()
+	pt3dadd(182.032, -140.261, -56.75, 1.574)
+	pt3dadd(184.742, -149.149, -58.75, 2.362)
+  }
+  dend[66] {pt3dclear()
+	pt3dadd(184.742, -149.149, -58.75, 2.362)
+	pt3dadd(185.622, -154.586, -58.75, 2.362)
+	pt3dadd(186.691, -156.405, -58.75, 1.574)
+  }
+  dend[67] {pt3dclear()
+	pt3dadd(186.691, -156.405, -58.75, 1.574)
+	pt3dadd(189.439, -158.985, -58.15, 2.362)
+  }
+  dend[68] {pt3dclear()
+	pt3dadd(189.439, -158.985, -58.15, 2.362)
+	pt3dadd(189.776, -163.021, -60.75, 2.362)
+  }
+  dend[69] {pt3dclear()
+	pt3dadd(189.776, -163.021, -60.75, 2.362)
+	pt3dadd(189.394, -167.171, -62.55, 2.362)
+  }
+  dend[70] {pt3dclear()
+	pt3dadd(189.394, -167.171, -62.55, 2.362)
+	pt3dadd(188.681, -170.373, -62.15, 1.574)
+	pt3dadd(189.302, -173.835, -64.25, 2.362)
+	pt3dadd(188.129, -177.471, -62.55, 1.574)
+  }
+  dend[71] {pt3dclear()
+	pt3dadd(188.129, -177.471, -62.55, 1.574)
+	pt3dadd(189.499, -179.701, -65.45, 1.574)
+  }
+  dend[72] {pt3dclear()
+	pt3dadd(188.129, -177.471, -62.55, 1.574)
+	pt3dadd(183.778, -179.5, -62.85, 0.788)
+  }
+  dend[73] {pt3dclear()
+	pt3dadd(189.394, -167.171, -62.55, 2.362)
+	pt3dadd(191.78, -168.265, -61.45, 0.788)
+  }
+  dend[74] {pt3dclear()
+	pt3dadd(189.776, -163.021, -60.75, 2.362)
+	pt3dadd(193.92, -165.282, -60.15, 1.574)
+	pt3dadd(195.937, -168.424, -60.65, 0.788)
+	pt3dadd(196.032, -171.468, -60.65, 0.788)
+  }
+  dend[75] {pt3dclear()
+	pt3dadd(189.439, -158.985, -58.15, 2.362)
+	pt3dadd(192.762, -158.539, -57.95, 0.788)
+  }
+  dend[76] {pt3dclear()
+	pt3dadd(186.691, -156.405, -58.75, 1.574)
+	pt3dadd(185.656, -163.177, -58.25, 0.788)
+  }
+  dend[77] {pt3dclear()
+	pt3dadd(184.742, -149.149, -58.75, 2.362)
+	pt3dadd(188.373, -148.89, -57.35, 0.788)
+  }
+  dend[78] {pt3dclear()
+	pt3dadd(188.373, -148.89, -57.35, 0.788)
+	pt3dadd(188.293, -151.796, -57.35, 0.788)
+  }
+  dend[79] {pt3dclear()
+	pt3dadd(188.373, -148.89, -57.35, 0.788)
+	pt3dadd(191.086, -147.846, -54.25, 0.788)
+  }
+  dend[80] {pt3dclear()
+	pt3dadd(182.032, -140.261, -56.75, 1.574)
+	pt3dadd(185.469, -142.19, -51.05, 0.788)
+	pt3dadd(189.698, -141.321, -55.45, 0.788)
+  }
+  dend[81] {pt3dclear()
+	pt3dadd(194.044, -72.319, -52.25, 7.086)
+	pt3dadd(197.485, -80.645, -52.45, 3.936)
+	pt3dadd(197.169, -85.647, -52.45, 3.15)
+	pt3dadd(199.994, -93.598, -51.15, 4.724)
+  }
+  dend[82] {pt3dclear()
+	pt3dadd(199.994, -93.598, -51.15, 4.724)
+	pt3dadd(198.621, -101.3, -51.85, 4.724)
+	pt3dadd(199.349, -109.015, -53.95, 5.512)
+  }
+  dend[83] {pt3dclear()
+	pt3dadd(199.349, -109.015, -53.95, 5.512)
+	pt3dadd(195.793, -121.266, -52.35, 2.362)
+	pt3dadd(195.895, -125.742, -55.95, 2.362)
+	pt3dadd(194.208, -131.825, -57.15, 2.362)
+	pt3dadd(195.934, -137.42, -56.25, 2.362)
+  }
+  dend[84] {pt3dclear()
+	pt3dadd(195.934, -137.42, -56.25, 2.362)
+	pt3dadd(197.521, -143.19, -56.25, 2.362)
+	pt3dadd(199.355, -149.727, -58.75, 2.362)
+  }
+  dend[85] {pt3dclear()
+	pt3dadd(199.355, -149.727, -58.75, 2.362)
+	pt3dadd(200.622, -155.757, -57.45, 1.574)
+	pt3dadd(199.962, -161.912, -59.05, 1.574)
+  }
+  dend[86] {pt3dclear()
+	pt3dadd(199.962, -161.912, -59.05, 1.574)
+	pt3dadd(200.885, -165.785, -61.95, 1.574)
+  }
+  dend[87] {pt3dclear()
+	pt3dadd(200.885, -165.785, -61.95, 1.574)
+	pt3dadd(200.757, -168.824, -63.85, 1.574)
+  }
+  dend[88] {pt3dclear()
+	pt3dadd(200.757, -168.824, -63.85, 1.574)
+	pt3dadd(200.297, -174.224, -62.35, 1.574)
+  }
+  dend[89] {pt3dclear()
+	pt3dadd(200.297, -174.224, -62.35, 1.574)
+	pt3dadd(198.193, -177.522, -64.15, 0.788)
+  }
+  dend[90] {pt3dclear()
+	pt3dadd(200.297, -174.224, -62.35, 1.574)
+	pt3dadd(204.023, -178.666, -63.35, 0.788)
+  }
+  dend[91] {pt3dclear()
+	pt3dadd(200.757, -168.824, -63.85, 1.574)
+	pt3dadd(204.08, -170.033, -61.15, 1.574)
+  }
+  dend[92] {pt3dclear()
+	pt3dadd(200.885, -165.785, -61.95, 1.574)
+	pt3dadd(197.302, -167.566, -58.55, 0.788)
+  }
+  dend[93] {pt3dclear()
+	pt3dadd(199.962, -161.912, -59.05, 1.574)
+	pt3dadd(196.645, -163.79, -60.25, 0.788)
+	pt3dadd(194.996, -163.566, -57.65, 0.788)
+  }
+  dend[94] {pt3dclear()
+	pt3dadd(199.355, -149.727, -58.75, 2.362)
+	pt3dadd(201.977, -150.38, -56.95, 1.574)
+  }
+  dend[95] {pt3dclear()
+	pt3dadd(201.977, -150.38, -56.95, 1.574)
+	pt3dadd(205.118, -153.329, -60.45, 2.362)
+  }
+  dend[96] {pt3dclear()
+	pt3dadd(205.118, -153.329, -60.45, 2.362)
+	pt3dadd(208.65, -159.958, -61.75, 2.362)
+  }
+  dend[97] {pt3dclear()
+	pt3dadd(208.65, -159.958, -61.75, 2.362)
+	pt3dadd(209.361, -166.688, -62.85, 1.574)
+  }
+  dend[98] {pt3dclear()
+	pt3dadd(209.361, -166.688, -62.85, 1.574)
+	pt3dadd(206.024, -174.202, -67.65, 0.788)
+  }
+  dend[99] {pt3dclear()
+	pt3dadd(209.361, -166.688, -62.85, 1.574)
+	pt3dadd(213.009, -169.069, -65.75, 0.788)
+  }
+  dend[100] {pt3dclear()
+	pt3dadd(208.65, -159.958, -61.75, 2.362)
+	pt3dadd(212.691, -161.052, -65.15, 1.574)
+  }
+  dend[101] {pt3dclear()
+	pt3dadd(205.118, -153.329, -60.45, 2.362)
+	pt3dadd(213.322, -152.703, -62.05, 1.574)
+	pt3dadd(215.949, -156.444, -63.55, 1.574)
+  }
+  dend[102] {pt3dclear()
+	pt3dadd(215.949, -156.444, -63.55, 1.574)
+	pt3dadd(215.7, -158.987, -61.15, 0.788)
+  }
+  dend[103] {pt3dclear()
+	pt3dadd(215.949, -156.444, -63.55, 1.574)
+	pt3dadd(219.845, -156.282, -64.65, 0.788)
+  }
+  dend[104] {pt3dclear()
+	pt3dadd(201.977, -150.38, -56.95, 1.574)
+	pt3dadd(205.802, -146.279, -56.35, 0.788)
+  }
+  dend[105] {pt3dclear()
+	pt3dadd(195.934, -137.42, -56.25, 2.362)
+	pt3dadd(200.386, -138.213, -53.75, 0.788)
+  }
+  dend[106] {pt3dclear()
+	pt3dadd(200.386, -138.213, -53.75, 0.788)
+	pt3dadd(203.43, -139.772, -48.15, 0.788)
+  }
+  dend[107] {pt3dclear()
+	pt3dadd(200.386, -138.213, -53.75, 0.788)
+  }
+}
+proc shape3d_3() {
+  dend[107] {	pt3dadd(201.285, -142.98, -48.75, 0.788)
+  }
+  dend[108] {pt3dclear()
+	pt3dadd(199.349, -109.015, -53.95, 5.512)
+	pt3dadd(203.686, -112.4, -51.95, 3.936)
+  }
+  dend[109] {pt3dclear()
+	pt3dadd(203.686, -112.4, -51.95, 3.936)
+	pt3dadd(205.364, -116.472, -52.35, 3.15)
+  }
+  dend[110] {pt3dclear()
+	pt3dadd(205.364, -116.472, -52.35, 3.15)
+	pt3dadd(208.111, -122.363, -54.25, 3.15)
+  }
+  dend[111] {pt3dclear()
+	pt3dadd(208.111, -122.363, -54.25, 3.15)
+	pt3dadd(212.502, -125.391, -54.55, 3.936)
+  }
+  dend[112] {pt3dclear()
+	pt3dadd(212.502, -125.391, -54.55, 3.936)
+	pt3dadd(215.444, -127.44, -58.45, 2.362)
+  }
+  dend[113] {pt3dclear()
+	pt3dadd(215.444, -127.44, -58.45, 2.362)
+	pt3dadd(221.418, -128.184, -56.95, 1.574)
+  }
+  dend[114] {pt3dclear()
+	pt3dadd(221.418, -128.184, -56.95, 1.574)
+	pt3dadd(226.861, -128.736, -57.85, 1.574)
+	pt3dadd(229.193, -130.186, -58.05, 1.574)
+  }
+  dend[115] {pt3dclear()
+	pt3dadd(229.193, -130.186, -58.05, 1.574)
+	pt3dadd(231.482, -129.891, -61.75, 1.574)
+  }
+  dend[116] {pt3dclear()
+	pt3dadd(231.482, -129.891, -61.75, 1.574)
+	pt3dadd(236.297, -130.515, -61.75, 0.788)
+  }
+  dend[117] {pt3dclear()
+	pt3dadd(231.482, -129.891, -61.75, 1.574)
+	pt3dadd(231.627, -132.803, -61.75, 0.788)
+  }
+  dend[118] {pt3dclear()
+	pt3dadd(229.193, -130.186, -58.05, 1.574)
+	pt3dadd(229.627, -133.956, -57.25, 0.788)
+  }
+  dend[119] {pt3dclear()
+	pt3dadd(221.418, -128.184, -56.95, 1.574)
+	pt3dadd(222.456, -132.776, -55.85, 1.574)
+  }
+  dend[120] {pt3dclear()
+	pt3dadd(215.444, -127.44, -58.45, 2.362)
+	pt3dadd(213.748, -140.367, -59.85, 1.574)
+	pt3dadd(215.82, -143.153, -60.85, 1.574)
+  }
+  dend[121] {pt3dclear()
+	pt3dadd(215.82, -143.153, -60.85, 1.574)
+	pt3dadd(215.902, -151.611, -59.45, 1.574)
+  }
+  dend[122] {pt3dclear()
+	pt3dadd(215.82, -143.153, -60.85, 1.574)
+	pt3dadd(218.96, -146.102, -62.65, 1.574)
+  }
+  dend[123] {pt3dclear()
+	pt3dadd(218.96, -146.102, -62.65, 1.574)
+	pt3dadd(220.953, -150.138, -62.35, 0.788)
+  }
+  dend[124] {pt3dclear()
+	pt3dadd(218.96, -146.102, -62.65, 1.574)
+	pt3dadd(222.047, -146.097, -61.55, 0.788)
+	pt3dadd(225.055, -148.998, -61.55, 0.788)
+  }
+  dend[125] {pt3dclear()
+	pt3dadd(212.502, -125.391, -54.55, 3.936)
+	pt3dadd(210.265, -131.951, -57.75, 2.362)
+  }
+  dend[126] {pt3dclear()
+	pt3dadd(210.265, -131.951, -57.75, 2.362)
+	pt3dadd(215.725, -136.798, -59.05, 1.574)
+	pt3dadd(221.579, -135.392, -59.15, 1.574)
+  }
+  dend[127] {pt3dclear()
+	pt3dadd(210.265, -131.951, -57.75, 2.362)
+	pt3dadd(208.892, -137.998, -52.85, 0.788)
+	pt3dadd(207.06, -142.824, -53.95, 0.788)
+  }
+  dend[128] {pt3dclear()
+	pt3dadd(208.111, -122.363, -54.25, 3.15)
+	pt3dadd(203.145, -122.361, -52.25, 0.788)
+  }
+  dend[129] {pt3dclear()
+	pt3dadd(205.364, -116.472, -52.35, 3.15)
+	pt3dadd(213.169, -117.356, -52.35, 0.788)
+  }
+  dend[130] {pt3dclear()
+	pt3dadd(203.686, -112.4, -51.95, 3.936)
+	pt3dadd(208.671, -110.075, -48.65, 0.788)
+	pt3dadd(214.241, -107.588, -47.95, 0.788)
+  }
+  dend[131] {pt3dclear()
+	pt3dadd(199.994, -93.598, -51.15, 4.724)
+	pt3dadd(206.386, -93.818, -46.75, 0.788)
+  }
+  dend[132] {pt3dclear()
+	pt3dadd(206.386, -93.818, -46.75, 0.788)
+	pt3dadd(209.745, -93.686, -44.25, 0.788)
+	pt3dadd(211.393, -97.22, -46.75, 0.788)
+  }
+  dend[133] {pt3dclear()
+	pt3dadd(206.386, -93.818, -46.75, 0.788)
+	pt3dadd(204.959, -96.91, -46.75, 0.788)
+  }
+  dend[134] {pt3dclear()
+	pt3dadd(201.36, -50.15, -48.35, 9.448)
+	pt3dadd(206.796, -54.236, -46.85, 4.724)
+	pt3dadd(211.525, -57.989, -47.15, 5.512)
+	pt3dadd(218.738, -59.259, -47.65, 6.3)
+	pt3dadd(223.933, -60.699, -47.45, 7.086)
+  }
+  dend[135] {pt3dclear()
+	pt3dadd(223.933, -60.699, -47.45, 7.086)
+	pt3dadd(225.127, -69.41, -46.65, 4.724)
+  }
+  dend[136] {pt3dclear()
+	pt3dadd(225.127, -69.41, -46.65, 4.724)
+	pt3dadd(222.271, -85.528, -50.25, 3.936)
+  }
+  dend[137] {pt3dclear()
+	pt3dadd(222.271, -85.528, -50.25, 3.936)
+	pt3dadd(221.467, -87.116, -50.85, 3.936)
+	pt3dadd(224.529, -88.005, -52.35, 3.936)
+  }
+  dend[138] {pt3dclear()
+	pt3dadd(224.529, -88.005, -52.35, 3.936)
+	pt3dadd(230.025, -93.166, -53.35, 3.936)
+	pt3dadd(231.046, -95.118, -54.15, 1.574)
+  }
+  dend[139] {pt3dclear()
+	pt3dadd(231.046, -95.118, -54.15, 1.574)
+	pt3dadd(234.742, -97.366, -54.95, 3.936)
+  }
+  dend[140] {pt3dclear()
+	pt3dadd(234.742, -97.366, -54.95, 3.936)
+	pt3dadd(239.774, -98.219, -55.05, 3.936)
+  }
+  dend[141] {pt3dclear()
+	pt3dadd(239.774, -98.219, -55.05, 3.936)
+	pt3dadd(245.459, -99.762, -55.45, 2.362)
+	pt3dadd(248.352, -101.943, -55.25, 1.574)
+  }
+  dend[142] {pt3dclear()
+	pt3dadd(248.352, -101.943, -55.25, 1.574)
+	pt3dadd(248.41, -109.64, -56.25, 1.574)
+  }
+  dend[143] {pt3dclear()
+	pt3dadd(248.352, -101.943, -55.25, 1.574)
+	pt3dadd(256.326, -103.19, -56.25, 0.788)
+  }
+  dend[144] {pt3dclear()
+	pt3dadd(239.774, -98.219, -55.05, 3.936)
+	pt3dadd(242.411, -108.134, -54.35, 1.574)
+	pt3dadd(242.482, -115.383, -56.35, 1.574)
+  }
+  dend[145] {pt3dclear()
+	pt3dadd(234.742, -97.366, -54.95, 3.936)
+	pt3dadd(235.923, -109.836, -53.45, 1.574)
+  }
+  dend[146] {pt3dclear()
+	pt3dadd(235.923, -109.836, -53.45, 1.574)
+	pt3dadd(235.437, -116.13, -54.05, 0.788)
+  }
+  dend[147] {pt3dclear()
+	pt3dadd(235.923, -109.836, -53.45, 1.574)
+	pt3dadd(239.009, -113.141, -57.05, 1.574)
+  }
+  dend[148] {pt3dclear()
+	pt3dadd(231.046, -95.118, -54.15, 1.574)
+	pt3dadd(230.524, -102.754, -47.35, 0.788)
+  }
+  dend[149] {pt3dclear()
+	pt3dadd(224.529, -88.005, -52.35, 3.936)
+	pt3dadd(221.344, -91.587, -52.35, 1.574)
+	pt3dadd(225.65, -99.399, -48.15, 0.788)
+	pt3dadd(225.865, -107.905, -48.85, 0.788)
+  }
+  dend[150] {pt3dclear()
+	pt3dadd(222.271, -85.528, -50.25, 3.936)
+	pt3dadd(229.158, -85.626, -46.85, 0.788)
+  }
+  dend[151] {pt3dclear()
+	pt3dadd(225.127, -69.41, -46.65, 4.724)
+	pt3dadd(229.113, -72.517, -43.15, 2.362)
+  }
+  dend[152] {pt3dclear()
+	pt3dadd(229.113, -72.517, -43.15, 2.362)
+	pt3dadd(234.7, -75.98, -43.75, 2.362)
+  }
+  dend[153] {pt3dclear()
+	pt3dadd(234.7, -75.98, -43.75, 2.362)
+	pt3dadd(237.575, -77.177, -46.05, 2.362)
+  }
+  dend[154] {pt3dclear()
+	pt3dadd(237.575, -77.177, -46.05, 2.362)
+	pt3dadd(243.011, -81.263, -45.05, 2.362)
+	pt3dadd(248.133, -87.04, -47.55, 2.362)
+  }
+  dend[155] {pt3dclear()
+	pt3dadd(248.133, -87.04, -47.55, 2.362)
+	pt3dadd(250.706, -87.826, -49.55, 2.362)
+	pt3dadd(252.886, -89.898, -48.55, 2.362)
+  }
+  dend[156] {pt3dclear()
+	pt3dadd(252.886, -89.898, -48.55, 2.362)
+	pt3dadd(254.8, -95.185, -51.25, 1.574)
+  }
+  dend[157] {pt3dclear()
+	pt3dadd(252.886, -89.898, -48.55, 2.362)
+	pt3dadd(259.785, -91.205, -52.95, 1.574)
+  }
+  dend[158] {pt3dclear()
+	pt3dadd(248.133, -87.04, -47.55, 2.362)
+	pt3dadd(246.126, -90.072, -46.65, 0.788)
+  }
+  dend[159] {pt3dclear()
+	pt3dadd(246.126, -90.072, -46.65, 0.788)
+	pt3dadd(241.957, -92.016, -46.65, 0.788)
+  }
+  dend[160] {pt3dclear()
+	pt3dadd(246.126, -90.072, -46.65, 0.788)
+	pt3dadd(245.334, -92.868, -46.65, 0.788)
+  }
+  dend[161] {pt3dclear()
+	pt3dadd(237.575, -77.177, -46.05, 2.362)
+	pt3dadd(235.472, -80.475, -43.45, 0.788)
+  }
+  dend[162] {pt3dclear()
+	pt3dadd(234.7, -75.98, -43.75, 2.362)
+	pt3dadd(232.941, -79.78, -43.75, 0.788)
+	pt3dadd(234.945, -85.024, -43.85, 0.788)
+  }
+  dend[163] {pt3dclear()
+	pt3dadd(234.945, -85.024, -43.85, 0.788)
+	pt3dadd(238.46, -87.357, -43.65, 0.788)
+	pt3dadd(240.979, -88.499, -43.65, 0.788)
+  }
+  dend[164] {pt3dclear()
+	pt3dadd(234.945, -85.024, -43.85, 0.788)
+	pt3dadd(233.99, -88.89, -40.65, 0.788)
+  }
+  dend[165] {pt3dclear()
+	pt3dadd(229.113, -72.517, -43.15, 2.362)
+	pt3dadd(227.148, -77.295, -43.25, 0.788)
+  }
+  dend[166] {pt3dclear()
+	pt3dadd(223.933, -60.699, -47.45, 7.086)
+	pt3dadd(230.138, -59.571, -43.65, 3.15)
+	pt3dadd(234.203, -61.427, -43.65, 3.936)
+	pt3dadd(239.217, -61.295, -45.35, 2.362)
+  }
+  dend[167] {pt3dclear()
+	pt3dadd(239.217, -61.295, -45.35, 2.362)
+	pt3dadd(240.642, -63.168, -45.05, 3.936)
+  }
+  dend[168] {pt3dclear()
+	pt3dadd(240.642, -63.168, -45.05, 3.936)
+	pt3dadd(247.299, -65.14, -45.05, 2.362)
+  }
+  dend[169] {pt3dclear()
+	pt3dadd(247.299, -65.14, -45.05, 2.362)
+	pt3dadd(249.716, -65.116, -44.85, 3.15)
+	pt3dadd(249.897, -65.032, -44.55, 3.15)
+  }
+  dend[170] {pt3dclear()
+	pt3dadd(249.897, -65.032, -44.55, 3.15)
+	pt3dadd(254.954, -64.991, -47.95, 3.15)
+  }
+  dend[171] {pt3dclear()
+	pt3dadd(254.954, -64.991, -47.95, 3.15)
+	pt3dadd(255.86, -64.568, -45.35, 3.15)
+	pt3dadd(262.735, -63.459, -46.05, 2.362)
+	pt3dadd(265.363, -63.889, -46.85, 1.574)
+  }
+  dend[172] {pt3dclear()
+	pt3dadd(265.363, -63.889, -46.85, 1.574)
+	pt3dadd(268.8, -64.162, -46.65, 1.574)
+  }
+  dend[173] {pt3dclear()
+	pt3dadd(268.8, -64.162, -46.65, 1.574)
+	pt3dadd(270.236, -70.554, -49.95, 1.574)
+  }
+  dend[174] {pt3dclear()
+	pt3dadd(270.236, -70.554, -49.95, 1.574)
+	pt3dadd(275.546, -72.712, -48.85, 0.788)
+  }
+  dend[175] {pt3dclear()
+	pt3dadd(270.236, -70.554, -49.95, 1.574)
+	pt3dadd(271.842, -73.998, -50.65, 0.788)
+  }
+  dend[176] {pt3dclear()
+	pt3dadd(268.8, -64.162, -46.65, 1.574)
+	pt3dadd(270.945, -64.265, -46.05, 1.574)
+  }
+  dend[177] {pt3dclear()
+	pt3dadd(270.945, -64.265, -46.05, 1.574)
+	pt3dadd(273.168, -63.118, -47.55, 1.574)
+	pt3dadd(275.489, -61.705, -46.65, 1.574)
+  }
+  dend[178] {pt3dclear()
+	pt3dadd(270.945, -64.265, -46.05, 1.574)
+	pt3dadd(271.199, -61.498, -46.05, 0.788)
+  }
+  dend[179] {pt3dclear()
+	pt3dadd(265.363, -63.889, -46.85, 1.574)
+	pt3dadd(264.377, -67.217, -46.75, 0.788)
+  }
+  dend[180] {pt3dclear()
+	pt3dadd(254.954, -64.991, -47.95, 3.15)
+	pt3dadd(255.242, -69.16, -46.15, 2.362)
+  }
+  dend[181] {pt3dclear()
+	pt3dadd(255.242, -69.16, -46.15, 2.362)
+	pt3dadd(257.174, -75.431, -49.25, 2.362)
+  }
+  dend[182] {pt3dclear()
+	pt3dadd(257.174, -75.431, -49.25, 2.362)
+	pt3dadd(262.792, -76.121, -52.95, 2.362)
+  }
+  dend[183] {pt3dclear()
+	pt3dadd(262.792, -76.121, -52.95, 2.362)
+	pt3dadd(263.799, -80.175, -54.15, 1.574)
+  }
+  dend[184] {pt3dclear()
+	pt3dadd(263.799, -80.175, -54.15, 1.574)
+	pt3dadd(265.586, -86.845, -51.45, 1.574)
+  }
+  dend[185] {pt3dclear()
+	pt3dadd(263.799, -80.175, -54.15, 1.574)
+	pt3dadd(268.554, -81.379, -54.05, 1.574)
+  }
+  dend[186] {pt3dclear()
+	pt3dadd(262.792, -76.121, -52.95, 2.362)
+	pt3dadd(265.758, -75.621, -51.95, 1.574)
+  }
+  dend[187] {pt3dclear()
+	pt3dadd(257.174, -75.431, -49.25, 2.362)
+	pt3dadd(256.357, -80.777, -48.25, 1.574)
+  }
+  dend[188] {pt3dclear()
+	pt3dadd(256.357, -80.777, -48.25, 1.574)
+	pt3dadd(260.404, -81.648, -48.05, 0.788)
+  }
+  dend[189] {pt3dclear()
+	pt3dadd(256.357, -80.777, -48.25, 1.574)
+	pt3dadd(253.395, -86.02, -48.25, 0.788)
+	pt3dadd(252.989, -89.409, -47.45, 0.788)
+  }
+  dend[190] {pt3dclear()
+	pt3dadd(255.242, -69.16, -46.15, 2.362)
+	pt3dadd(261.609, -70.273, -47.55, 0.788)
+	pt3dadd(264.454, -74.243, -46.95, 0.788)
+  }
+  dend[191] {pt3dclear()
+	pt3dadd(249.897, -65.032, -44.55, 3.15)
+	pt3dadd(250.221, -72.825, -42.85, 0.788)
+  }
+  dend[192] {pt3dclear()
+	pt3dadd(250.221, -72.825, -42.85, 0.788)
+	pt3dadd(248.8, -77.35, -42.65, 0.788)
+  }
+  dend[193] {pt3dclear()
+	pt3dadd(250.221, -72.825, -42.85, 0.788)
+  }
+}
+proc shape3d_4() {
+  dend[193] {	pt3dadd(253.398, -76.088, -42.85, 0.788)
+  }
+  dend[194] {pt3dclear()
+	pt3dadd(247.299, -65.14, -45.05, 2.362)
+	pt3dadd(247.872, -70.39, -43.15, 1.574)
+  }
+  dend[195] {pt3dclear()
+	pt3dadd(240.642, -63.168, -45.05, 3.936)
+	pt3dadd(238.056, -66.14, -38.75, 0.788)
+	pt3dadd(239.07, -68.315, -40.55, 0.788)
+  }
+  dend[196] {pt3dclear()
+	pt3dadd(239.217, -61.295, -45.35, 2.362)
+	pt3dadd(243.417, -56.578, -40.55, 1.574)
+	pt3dadd(245.338, -56.676, -40.15, 1.574)
+  }
+  dend[197] {pt3dclear()
+	pt3dadd(245.338, -56.676, -40.15, 1.574)
+	pt3dadd(248.601, -55.154, -42.85, 1.574)
+	pt3dadd(250.686, -52.527, -41.15, 1.574)
+	pt3dadd(252.087, -53.639, -39.45, 1.574)
+  }
+  dend[198] {pt3dclear()
+	pt3dadd(252.087, -53.639, -39.45, 1.574)
+	pt3dadd(256.075, -53.435, -39.45, 1.574)
+	pt3dadd(257.608, -56.25, -39.45, 1.574)
+  }
+  dend[199] {pt3dclear()
+	pt3dadd(252.087, -53.639, -39.45, 1.574)
+	pt3dadd(253.022, -58.72, -39.45, 0.788)
+  }
+  dend[200] {pt3dclear()
+	pt3dadd(245.338, -56.676, -40.15, 1.574)
+	pt3dadd(244.723, -54.646, -40.15, 0.788)
+	pt3dadd(246.143, -51.776, -38.95, 0.788)
+  }
+  dend[201] {pt3dclear()
+	pt3dadd(199.878, 5.321, -43.45, 10.236)
+	pt3dadd(207.279, 4.358, -39.05, 4.724)
+	pt3dadd(216.111, 3.401, -41.35, 5.512)
+	pt3dadd(223.746, 1.224, -37.05, 4.724)
+	pt3dadd(230.693, 0.05, -36.45, 5.512)
+	pt3dadd(235.373, -5.491, -34.15, 6.3)
+  }
+  dend[202] {pt3dclear()
+	pt3dadd(235.373, -5.491, -34.15, 6.3)
+	pt3dadd(245.196, -6.207, -37.05, 6.3)
+  }
+  dend[203] {pt3dclear()
+	pt3dadd(245.196, -6.207, -37.05, 6.3)
+	pt3dadd(250.457, -8.498, -33.65, 4.724)
+  }
+  dend[204] {pt3dclear()
+	pt3dadd(250.457, -8.498, -33.65, 4.724)
+	pt3dadd(254.8, -13.314, -35.65, 6.3)
+  }
+  dend[205] {pt3dclear()
+	pt3dadd(254.8, -13.314, -35.65, 6.3)
+	pt3dadd(258.369, -16.946, -34.75, 5.512)
+  }
+  dend[206] {pt3dclear()
+	pt3dadd(258.369, -16.946, -34.75, 5.512)
+	pt3dadd(262.211, -18.796, -33.55, 3.15)
+  }
+  dend[207] {pt3dclear()
+	pt3dadd(262.211, -18.796, -33.55, 3.15)
+	pt3dadd(270.282, -18.122, -36.75, 4.724)
+  }
+  dend[208] {pt3dclear()
+	pt3dadd(270.282, -18.122, -36.75, 4.724)
+	pt3dadd(273.617, -15.573, -35.95, 3.15)
+  }
+  dend[209] {pt3dclear()
+	pt3dadd(273.617, -15.573, -35.95, 3.15)
+	pt3dadd(277.709, -11.569, -37.05, 2.362)
+	pt3dadd(281.334, -9.879, -35.25, 2.362)
+	pt3dadd(283.672, -7.795, -33.95, 2.362)
+  }
+  dend[210] {pt3dclear()
+	pt3dadd(283.672, -7.795, -33.95, 2.362)
+	pt3dadd(286.301, -6.57, -36.15, 2.362)
+  }
+  dend[211] {pt3dclear()
+	pt3dadd(286.301, -6.57, -36.15, 2.362)
+	pt3dadd(290.669, -5.526, -39.15, 1.574)
+	pt3dadd(292.922, -4.916, -38.65, 1.574)
+  }
+  dend[212] {pt3dclear()
+	pt3dadd(286.301, -6.57, -36.15, 2.362)
+	pt3dadd(286.906, -0.77, -36.05, 0.788)
+  }
+  dend[213] {pt3dclear()
+	pt3dadd(283.672, -7.795, -33.95, 2.362)
+	pt3dadd(285.611, -10.532, -38.05, 1.574)
+  }
+  dend[214] {pt3dclear()
+	pt3dadd(273.617, -15.573, -35.95, 3.15)
+	pt3dadd(282.093, -16.476, -39.45, 2.362)
+  }
+  dend[215] {pt3dclear()
+	pt3dadd(282.093, -16.476, -39.45, 2.362)
+	pt3dadd(287.725, -11.753, -41.25, 2.362)
+	pt3dadd(291.248, -8.897, -40.85, 1.574)
+  }
+  dend[216] {pt3dclear()
+	pt3dadd(291.248, -8.897, -40.85, 1.574)
+	pt3dadd(298.246, -1.662, -41.95, 2.362)
+	pt3dadd(300.511, -0.605, -40.75, 2.362)
+  }
+  dend[217] {pt3dclear()
+	pt3dadd(300.511, -0.605, -40.75, 2.362)
+	pt3dadd(302.74, -2.545, -43.15, 2.362)
+  }
+  dend[218] {pt3dclear()
+	pt3dadd(302.74, -2.545, -43.15, 2.362)
+	pt3dadd(303.004, -7.608, -44.05, 1.574)
+	pt3dadd(299.077, -10.542, -42.95, 0.788)
+  }
+  dend[219] {pt3dclear()
+	pt3dadd(302.74, -2.545, -43.15, 2.362)
+	pt3dadd(306.37, -5.597, -42.75, 0.788)
+  }
+  dend[220] {pt3dclear()
+	pt3dadd(300.511, -0.605, -40.75, 2.362)
+	pt3dadd(300.349, 1.636, -40.65, 1.574)
+  }
+  dend[221] {pt3dclear()
+	pt3dadd(300.349, 1.636, -40.65, 1.574)
+	pt3dadd(301.286, 4.832, -40.65, 0.788)
+  }
+  dend[222] {pt3dclear()
+	pt3dadd(300.349, 1.636, -40.65, 1.574)
+	pt3dadd(303.14, 2.276, -40.85, 0.788)
+  }
+  dend[223] {pt3dclear()
+	pt3dadd(291.248, -8.897, -40.85, 1.574)
+	pt3dadd(295.318, -12.185, -40.65, 0.788)
+  }
+  dend[224] {pt3dclear()
+	pt3dadd(282.093, -16.476, -39.45, 2.362)
+	pt3dadd(284.37, -18.283, -38.05, 1.574)
+  }
+  dend[225] {pt3dclear()
+	pt3dadd(284.37, -18.283, -38.05, 1.574)
+	pt3dadd(288.84, -20.06, -40.75, 1.574)
+  }
+  dend[226] {pt3dclear()
+	pt3dadd(284.37, -18.283, -38.05, 1.574)
+	pt3dadd(282.877, -20.524, -38.05, 0.788)
+  }
+  dend[227] {pt3dclear()
+	pt3dadd(270.282, -18.122, -36.75, 4.724)
+	pt3dadd(275.083, -24.158, -39.95, 3.936)
+  }
+  dend[228] {pt3dclear()
+	pt3dadd(275.083, -24.158, -39.95, 3.936)
+	pt3dadd(278.808, -33.566, -44.35, 2.362)
+	pt3dadd(281.332, -37.795, -45.65, 2.362)
+  }
+  dend[229] {pt3dclear()
+	pt3dadd(281.332, -37.795, -45.65, 2.362)
+	pt3dadd(281.879, -47.25, -48.15, 1.574)
+  }
+  dend[230] {pt3dclear()
+	pt3dadd(281.879, -47.25, -48.15, 1.574)
+	pt3dadd(280.717, -53.75, -50.85, 1.574)
+	pt3dadd(281.985, -56.469, -48.15, 1.574)
+  }
+  dend[231] {pt3dclear()
+	pt3dadd(281.879, -47.25, -48.15, 1.574)
+	pt3dadd(285.369, -50.477, -49.65, 0.788)
+  }
+  dend[232] {pt3dclear()
+	pt3dadd(281.332, -37.795, -45.65, 2.362)
+	pt3dadd(287.028, -38.89, -49.05, 1.574)
+	pt3dadd(291.74, -38.348, -47.95, 1.574)
+  }
+  dend[233] {pt3dclear()
+	pt3dadd(275.083, -24.158, -39.95, 3.936)
+	pt3dadd(287.624, -26.917, -44.95, 2.362)
+  }
+  dend[234] {pt3dclear()
+	pt3dadd(287.624, -26.917, -44.95, 2.362)
+	pt3dadd(289.912, -31.587, -44.65, 1.574)
+	pt3dadd(291.56, -35.122, -44.65, 1.574)
+  }
+  dend[235] {pt3dclear()
+	pt3dadd(291.56, -35.122, -44.65, 1.574)
+	pt3dadd(290.93, -40.16, -45.85, 0.788)
+  }
+  dend[236] {pt3dclear()
+	pt3dadd(291.56, -35.122, -44.65, 1.574)
+	pt3dadd(294.998, -33.74, -42.85, 0.788)
+  }
+  dend[237] {pt3dclear()
+	pt3dadd(287.624, -26.917, -44.95, 2.362)
+	pt3dadd(292.553, -26.604, -43.05, 1.574)
+	pt3dadd(294.71, -27.916, -46.25, 1.574)
+  }
+  dend[238] {pt3dclear()
+	pt3dadd(294.71, -27.916, -46.25, 1.574)
+	pt3dadd(296.056, -32.695, -45.15, 0.788)
+  }
+  dend[239] {pt3dclear()
+	pt3dadd(294.71, -27.916, -46.25, 1.574)
+	pt3dadd(297.097, -25.699, -45.55, 0.788)
+  }
+  dend[240] {pt3dclear()
+	pt3dadd(262.211, -18.796, -33.55, 3.15)
+	pt3dadd(268.274, -24.464, -38.35, 2.362)
+	pt3dadd(269.988, -32.162, -39.25, 2.362)
+  }
+  dend[241] {pt3dclear()
+	pt3dadd(269.988, -32.162, -39.25, 2.362)
+	pt3dadd(270.193, -32.838, -39.25, 3.15)
+  }
+  dend[242] {pt3dclear()
+	pt3dadd(270.193, -32.838, -39.25, 3.15)
+	pt3dadd(268.614, -41.519, -42.25, 1.574)
+	pt3dadd(270.605, -48.866, -42.35, 1.574)
+  }
+  dend[243] {pt3dclear()
+	pt3dadd(270.605, -48.866, -42.35, 1.574)
+	pt3dadd(271.589, -52.158, -43.95, 0.788)
+  }
+  dend[244] {pt3dclear()
+	pt3dadd(270.605, -48.866, -42.35, 1.574)
+	pt3dadd(276.598, -48.94, -42.95, 0.788)
+  }
+  dend[245] {pt3dclear()
+	pt3dadd(270.193, -32.838, -39.25, 3.15)
+	pt3dadd(272.788, -41.007, -43.55, 1.574)
+	pt3dadd(275.523, -47.345, -43.75, 1.574)
+  }
+  dend[246] {pt3dclear()
+	pt3dadd(275.523, -47.345, -43.75, 1.574)
+	pt3dadd(275.612, -52.268, -43.65, 0.788)
+  }
+  dend[247] {pt3dclear()
+	pt3dadd(275.523, -47.345, -43.75, 1.574)
+	pt3dadd(281.28, -49.515, -45.75, 0.788)
+  }
+  dend[248] {pt3dclear()
+	pt3dadd(269.988, -32.162, -39.25, 2.362)
+	pt3dadd(275.285, -34.767, -39.45, 0.788)
+  }
+  dend[249] {pt3dclear()
+	pt3dadd(258.369, -16.946, -34.75, 5.512)
+	pt3dadd(260.783, -25.199, -33.85, 2.362)
+  }
+  dend[250] {pt3dclear()
+	pt3dadd(260.783, -25.199, -33.85, 2.362)
+	pt3dadd(263.826, -30.069, -36.75, 2.362)
+  }
+  dend[251] {pt3dclear()
+	pt3dadd(263.826, -30.069, -36.75, 2.362)
+	pt3dadd(261.258, -34.026, -36.75, 0.788)
+	pt3dadd(263.147, -38.551, -38.25, 0.788)
+	pt3dadd(265.833, -46.677, -38.05, 0.788)
+	pt3dadd(266.498, -46.919, -38.05, 0.788)
+  }
+  dend[252] {pt3dclear()
+	pt3dadd(266.498, -46.919, -38.05, 0.788)
+	pt3dadd(264.696, -52.283, -35.05, 0.788)
+  }
+  dend[253] {pt3dclear()
+	pt3dadd(266.498, -46.919, -38.05, 0.788)
+	pt3dadd(270.895, -48.068, -38.05, 0.788)
+  }
+  dend[254] {pt3dclear()
+	pt3dadd(263.826, -30.069, -36.75, 2.362)
+	pt3dadd(269.932, -35.828, -30.15, 0.788)
+	pt3dadd(273.46, -37.714, -30.35, 0.788)
+	pt3dadd(275.06, -39.727, -30.35, 0.788)
+  }
+  dend[255] {pt3dclear()
+	pt3dadd(275.06, -39.727, -30.35, 0.788)
+	pt3dadd(275.802, -45.339, -30.45, 0.788)
+  }
+  dend[256] {pt3dclear()
+	pt3dadd(275.06, -39.727, -30.35, 0.788)
+	pt3dadd(278.702, -42.331, -32.15, 0.788)
+  }
+  dend[257] {pt3dclear()
+	pt3dadd(260.783, -25.199, -33.85, 2.362)
+	pt3dadd(265.416, -25.908, -33.85, 0.788)
+  }
+  dend[258] {pt3dclear()
+	pt3dadd(254.8, -13.314, -35.65, 6.3)
+	pt3dadd(253.304, -23.832, -37.25, 1.574)
+	pt3dadd(253.448, -30.054, -37.85, 1.574)
+	pt3dadd(253.898, -39.775, -37.15, 1.574)
+  }
+  dend[259] {pt3dclear()
+	pt3dadd(253.898, -39.775, -37.15, 1.574)
+	pt3dadd(256.754, -43.298, -37.15, 0.788)
+	pt3dadd(259.43, -45.25, -37.55, 0.788)
+  }
+  dend[260] {pt3dclear()
+	pt3dadd(259.43, -45.25, -37.55, 0.788)
+	pt3dadd(264.752, -46.961, -39.85, 0.788)
+  }
+  dend[261] {pt3dclear()
+	pt3dadd(259.43, -45.25, -37.55, 0.788)
+	pt3dadd(260.515, -53.019, -39.65, 0.788)
+  }
+  dend[262] {pt3dclear()
+	pt3dadd(253.898, -39.775, -37.15, 1.574)
+	pt3dadd(253.31, -44.904, -35.25, 0.788)
+  }
+  dend[263] {pt3dclear()
+	pt3dadd(253.31, -44.904, -35.25, 0.788)
+	pt3dadd(251.95, -47.193, -32.45, 0.788)
+  }
+  dend[264] {pt3dclear()
+	pt3dadd(253.31, -44.904, -35.25, 0.788)
+	pt3dadd(256.336, -47.134, -35.45, 0.788)
+  }
+  dend[265] {pt3dclear()
+	pt3dadd(250.457, -8.498, -33.65, 4.724)
+	pt3dadd(256.094, -6.863, -29.95, 1.574)
+  }
+  dend[266] {pt3dclear()
+	pt3dadd(256.094, -6.863, -29.95, 1.574)
+	pt3dadd(258.874, -5.015, -31.35, 0.788)
+  }
+  dend[267] {pt3dclear()
+	pt3dadd(258.874, -5.015, -31.35, 0.788)
+	pt3dadd(261.364, -2.309, -30.15, 0.788)
+	pt3dadd(263.738, -2.195, -27.45, 0.788)
+	pt3dadd(266.91, -0.716, -30.35, 0.788)
+  }
+  dend[268] {pt3dclear()
+	pt3dadd(266.91, -0.716, -30.35, 0.788)
+	pt3dadd(273.482, -2.506, -28.95, 0.788)
+  }
+  dend[269] {pt3dclear()
+	pt3dadd(266.91, -0.716, -30.35, 0.788)
+	pt3dadd(268.011, 3.549, -27.95, 0.788)
+  }
+  dend[270] {pt3dclear()
+	pt3dadd(258.874, -5.015, -31.35, 0.788)
+	pt3dadd(260.867, -7.396, -31.35, 0.788)
+  }
+  dend[271] {pt3dclear()
+	pt3dadd(256.094, -6.863, -29.95, 1.574)
+	pt3dadd(258.752, -9.485, -29.75, 0.788)
+  }
+  dend[272] {pt3dclear()
+	pt3dadd(245.196, -6.207, -37.05, 6.3)
+	pt3dadd(251.143, 0.207, -28.25, 0.788)
+  }
+  dend[273] {pt3dclear()
+	pt3dadd(235.373, -5.491, -34.15, 6.3)
+	pt3dadd(236.38, -12.856, -34.65, 1.574)
+  }
+  dend[274] {pt3dclear()
+	pt3dadd(236.38, -12.856, -34.65, 1.574)
+	pt3dadd(238.079, -27.621, -34.65, 1.574)
+	pt3dadd(236.066, -32.532, -34.65, 1.574)
+	pt3dadd(238.875, -34.533, -37.15, 1.574)
+  }
+  dend[275] {pt3dclear()
+	pt3dadd(238.875, -34.533, -37.15, 1.574)
+  }
+}
+proc shape3d_5() {
+  dend[275] {	pt3dadd(235.574, -40.706, -34.95, 1.574)
+  }
+  dend[276] {pt3dclear()
+	pt3dadd(238.875, -34.533, -37.15, 1.574)
+	pt3dadd(244.288, -32.891, -33.15, 1.574)
+	pt3dadd(245.546, -29.436, -33.15, 0.788)
+  }
+  dend[277] {pt3dclear()
+	pt3dadd(236.38, -12.856, -34.65, 1.574)
+	pt3dadd(232.427, -19.996, -35.15, 0.788)
+  }
+  dend[278] {pt3dclear()
+	pt3dadd(232.427, -19.996, -35.15, 0.788)
+	pt3dadd(233.592, -23.204, -28.95, 0.788)
+	pt3dadd(233.052, -29.855, -20.65, 0.788)
+  }
+  dend[279] {pt3dclear()
+	pt3dadd(232.427, -19.996, -35.15, 0.788)
+	pt3dadd(227.26, -25.715, -34.85, 0.788)
+  }
+  dend[280] {pt3dclear()
+	pt3dadd(165.197, 91.763, -31.65, 11.812)
+	pt3dadd(181.86, 95.781, -30.05, 7.874)
+	pt3dadd(193.508, 96.358, -25.95, 11.024)
+	pt3dadd(206.097, 95.388, -20.95, 10.236)
+  }
+  dend[281] {pt3dclear()
+	pt3dadd(206.097, 95.388, -20.95, 10.236)
+	pt3dadd(217.241, 87.343, -18.05, 6.3)
+	pt3dadd(224.404, 82.629, -21.05, 7.874)
+	pt3dadd(231.036, 78.108, -20.05, 8.662)
+  }
+  dend[282] {pt3dclear()
+	pt3dadd(231.036, 78.108, -20.05, 8.662)
+	pt3dadd(238.785, 70.246, -16.55, 3.936)
+	pt3dadd(243.58, 65.642, -18.85, 3.936)
+	pt3dadd(248.237, 60.862, -15.85, 5.512)
+  }
+  dend[283] {pt3dclear()
+	pt3dadd(248.237, 60.862, -15.85, 5.512)
+	pt3dadd(254.313, 57.296, -17.55, 5.512)
+  }
+  dend[284] {pt3dclear()
+	pt3dadd(254.313, 57.296, -17.55, 5.512)
+	pt3dadd(255.6, 56.902, -18.15, 5.512)
+  }
+  dend[285] {pt3dclear()
+	pt3dadd(255.6, 56.902, -18.15, 5.512)
+	pt3dadd(262.381, 48.038, -23.75, 4.724)
+  }
+  dend[286] {pt3dclear()
+	pt3dadd(262.381, 48.038, -23.75, 4.724)
+	pt3dadd(265.563, 41.688, -23.25, 3.936)
+	pt3dadd(276.447, 33.964, -25.35, 4.724)
+  }
+  dend[287] {pt3dclear()
+	pt3dadd(276.447, 33.964, -25.35, 4.724)
+	pt3dadd(279.17, 27.179, -23.95, 3.15)
+  }
+  dend[288] {pt3dclear()
+	pt3dadd(279.17, 27.179, -23.95, 3.15)
+	pt3dadd(283.226, 16.823, -29.75, 1.574)
+  }
+  dend[289] {pt3dclear()
+	pt3dadd(283.226, 16.823, -29.75, 1.574)
+	pt3dadd(283.66, 13.053, -31.55, 1.574)
+	pt3dadd(288.594, 6.968, -31.45, 0.788)
+  }
+  dend[290] {pt3dclear()
+	pt3dadd(288.594, 6.968, -31.45, 0.788)
+	pt3dadd(290.23, 1.331, -31.95, 0.788)
+  }
+  dend[291] {pt3dclear()
+	pt3dadd(288.594, 6.968, -31.45, 0.788)
+	pt3dadd(293.596, 6.652, -31.75, 0.788)
+  }
+  dend[292] {pt3dclear()
+	pt3dadd(283.226, 16.823, -29.75, 1.574)
+	pt3dadd(289.672, 13.649, -23.85, 1.574)
+	pt3dadd(293.791, 10.495, -21.85, 1.574)
+  }
+  dend[293] {pt3dclear()
+	pt3dadd(279.17, 27.179, -23.95, 3.15)
+	pt3dadd(284.413, 24.217, -24.35, 1.574)
+  }
+  dend[294] {pt3dclear()
+	pt3dadd(284.413, 24.217, -24.35, 1.574)
+	pt3dadd(289.184, 20.373, -27.55, 2.362)
+	pt3dadd(292.355, 18.542, -28.05, 2.362)
+  }
+  dend[295] {pt3dclear()
+	pt3dadd(292.355, 18.542, -28.05, 2.362)
+	pt3dadd(296.173, 15.798, -28.75, 1.574)
+  }
+  dend[296] {pt3dclear()
+	pt3dadd(296.173, 15.798, -28.75, 1.574)
+	pt3dadd(299.331, 11.864, -33.85, 1.574)
+	pt3dadd(302.266, 9.592, -35.45, 1.574)
+  }
+  dend[297] {pt3dclear()
+	pt3dadd(296.173, 15.798, -28.75, 1.574)
+	pt3dadd(298.922, 19.839, -27.75, 0.788)
+  }
+  dend[298] {pt3dclear()
+	pt3dadd(292.355, 18.542, -28.05, 2.362)
+	pt3dadd(294.743, 24.069, -25.75, 0.788)
+  }
+  dend[299] {pt3dclear()
+	pt3dadd(284.413, 24.217, -24.35, 1.574)
+	pt3dadd(287.035, 26.874, -24.35, 0.788)
+  }
+  dend[300] {pt3dclear()
+	pt3dadd(276.447, 33.964, -25.35, 4.724)
+	pt3dadd(280.676, 34.832, -23.75, 2.362)
+  }
+  dend[301] {pt3dclear()
+	pt3dadd(280.676, 34.832, -23.75, 2.362)
+	pt3dadd(291.098, 36.382, -24.55, 2.362)
+  }
+  dend[302] {pt3dclear()
+	pt3dadd(291.098, 36.382, -24.55, 2.362)
+	pt3dadd(298.521, 29.692, -27.85, 1.574)
+  }
+  dend[303] {pt3dclear()
+	pt3dadd(298.521, 29.692, -27.85, 1.574)
+	pt3dadd(301.358, 23.843, -31.85, 0.788)
+  }
+  dend[304] {pt3dclear()
+	pt3dadd(298.521, 29.692, -27.85, 1.574)
+	pt3dadd(302.683, 29.757, -28.05, 0.788)
+  }
+  dend[305] {pt3dclear()
+	pt3dadd(291.098, 36.382, -24.55, 2.362)
+	pt3dadd(297.81, 38.078, -26.75, 0.788)
+  }
+  dend[306] {pt3dclear()
+	pt3dadd(297.81, 38.078, -26.75, 0.788)
+	pt3dadd(304.672, 33.774, -28.05, 0.788)
+  }
+  dend[307] {pt3dclear()
+	pt3dadd(297.81, 38.078, -26.75, 0.788)
+	pt3dadd(303.411, 38.372, -29.85, 0.788)
+  }
+  dend[308] {pt3dclear()
+	pt3dadd(280.676, 34.832, -23.75, 2.362)
+	pt3dadd(282.971, 32.041, -23.65, 0.788)
+	pt3dadd(287.768, 30.746, -23.65, 0.788)
+  }
+  dend[309] {pt3dclear()
+	pt3dadd(262.381, 48.038, -23.75, 4.724)
+	pt3dadd(268.23, 49.22, -22.25, 2.362)
+	pt3dadd(279.225, 48.83, -23.65, 2.362)
+	pt3dadd(283.502, 49.832, -25.25, 1.574)
+  }
+  dend[310] {pt3dclear()
+	pt3dadd(283.502, 49.832, -25.25, 1.574)
+	pt3dadd(288.22, 50.598, -23.45, 2.362)
+  }
+  dend[311] {pt3dclear()
+	pt3dadd(288.22, 50.598, -23.45, 2.362)
+	pt3dadd(293.205, 52.922, -20.55, 1.574)
+  }
+  dend[312] {pt3dclear()
+	pt3dadd(293.205, 52.922, -20.55, 1.574)
+	pt3dadd(301.469, 50.818, -27.25, 1.574)
+  }
+  dend[313] {pt3dclear()
+	pt3dadd(301.469, 50.818, -27.25, 1.574)
+	pt3dadd(308.477, 50.223, -26.95, 1.574)
+  }
+  dend[314] {pt3dclear()
+	pt3dadd(301.469, 50.818, -27.25, 1.574)
+	pt3dadd(303.679, 46.552, -27.25, 1.574)
+  }
+  dend[315] {pt3dclear()
+	pt3dadd(293.205, 52.922, -20.55, 1.574)
+	pt3dadd(293.098, 57.175, -21.75, 0.788)
+  }
+  dend[316] {pt3dclear()
+	pt3dadd(288.22, 50.598, -23.45, 2.362)
+	pt3dadd(289.998, 55.068, -21.55, 0.788)
+  }
+  dend[317] {pt3dclear()
+	pt3dadd(283.502, 49.832, -25.25, 1.574)
+	pt3dadd(284.953, 53.819, -22.55, 0.788)
+  }
+  dend[318] {pt3dclear()
+	pt3dadd(255.6, 56.902, -18.15, 5.512)
+	pt3dadd(260.705, 58.731, -18.85, 2.362)
+	pt3dadd(265.315, 60.44, -14.65, 3.15)
+  }
+  dend[319] {pt3dclear()
+	pt3dadd(265.315, 60.44, -14.65, 3.15)
+	pt3dadd(269.665, 62.468, -15.45, 1.574)
+  }
+  dend[320] {pt3dclear()
+	pt3dadd(269.665, 62.468, -15.45, 1.574)
+	pt3dadd(272.946, 64.66, -16.65, 3.15)
+  }
+  dend[321] {pt3dclear()
+	pt3dadd(272.946, 64.66, -16.65, 3.15)
+	pt3dadd(279.677, 68.682, -17.65, 3.15)
+  }
+  dend[322] {pt3dclear()
+	pt3dadd(279.677, 68.682, -17.65, 3.15)
+	pt3dadd(288.618, 66.782, -19.45, 2.362)
+  }
+  dend[323] {pt3dclear()
+	pt3dadd(288.618, 66.782, -19.45, 2.362)
+	pt3dadd(291.747, 66.697, -18.75, 3.15)
+  }
+  dend[324] {pt3dclear()
+	pt3dadd(291.747, 66.697, -18.75, 3.15)
+	pt3dadd(299.611, 61.426, -22.95, 1.574)
+	pt3dadd(304.534, 58.205, -21.85, 0.788)
+  }
+  dend[325] {pt3dclear()
+	pt3dadd(304.534, 58.205, -21.85, 0.788)
+	pt3dadd(306.055, 54.942, -21.85, 0.788)
+  }
+  dend[326] {pt3dclear()
+	pt3dadd(304.534, 58.205, -21.85, 0.788)
+	pt3dadd(307.108, 60.729, -22.85, 0.788)
+  }
+  dend[327] {pt3dclear()
+	pt3dadd(291.747, 66.697, -18.75, 3.15)
+	pt3dadd(296.007, 68.683, -17.05, 1.574)
+	pt3dadd(296.732, 69.021, -17.05, 1.574)
+  }
+  dend[328] {pt3dclear()
+	pt3dadd(296.732, 69.021, -17.05, 1.574)
+	pt3dadd(299.656, 69.612, -17.45, 1.574)
+  }
+  dend[329] {pt3dclear()
+	pt3dadd(299.656, 69.612, -17.45, 1.574)
+	pt3dadd(303.644, 71.472, -20.85, 1.574)
+	pt3dadd(306.307, 69.073, -18.05, 1.574)
+	pt3dadd(307.061, 65.562, -20.15, 0.788)
+  }
+  dend[330] {pt3dclear()
+	pt3dadd(307.061, 65.562, -20.15, 0.788)
+	pt3dadd(311.707, 63.646, -21.95, 0.788)
+  }
+  dend[331] {pt3dclear()
+	pt3dadd(307.061, 65.562, -20.15, 0.788)
+	pt3dadd(308.275, 62.487, -17.15, 0.788)
+  }
+  dend[332] {pt3dclear()
+	pt3dadd(299.656, 69.612, -17.45, 1.574)
+	pt3dadd(300.368, 66.193, -15.15, 0.788)
+  }
+  dend[333] {pt3dclear()
+	pt3dadd(296.732, 69.021, -17.05, 1.574)
+	pt3dadd(293.397, 69.783, -17.05, 0.788)
+  }
+  dend[334] {pt3dclear()
+	pt3dadd(288.618, 66.782, -19.45, 2.362)
+	pt3dadd(289.501, 71.277, -16.65, 0.788)
+  }
+  dend[335] {pt3dclear()
+	pt3dadd(289.501, 71.277, -16.65, 0.788)
+	pt3dadd(292.855, 72.84, -13.15, 0.788)
+  }
+  dend[336] {pt3dclear()
+	pt3dadd(289.501, 71.277, -16.65, 0.788)
+	pt3dadd(286.391, 73.688, -14.15, 0.788)
+	pt3dadd(285.878, 76.207, -14.15, 0.788)
+  }
+  dend[337] {pt3dclear()
+	pt3dadd(279.677, 68.682, -17.65, 3.15)
+	pt3dadd(283.017, 64.832, -18.15, 0.788)
+  }
+  dend[338] {pt3dclear()
+	pt3dadd(272.946, 64.66, -16.65, 3.15)
+	pt3dadd(280.273, 59.36, -16.65, 0.788)
+	pt3dadd(282.9, 57.275, -16.85, 0.788)
+  }
+  dend[339] {pt3dclear()
+	pt3dadd(269.665, 62.468, -15.45, 1.574)
+	pt3dadd(271.344, 60.051, -12.55, 0.788)
+  }
+  dend[340] {pt3dclear()
+	pt3dadd(271.344, 60.051, -12.55, 0.788)
+	pt3dadd(272.908, 58.353, -14.75, 0.788)
+	pt3dadd(273.608, 54.487, -16.05, 0.788)
+  }
+  dend[341] {pt3dclear()
+	pt3dadd(271.344, 60.051, -12.55, 0.788)
+	pt3dadd(271.09, 57.284, -12.15, 0.788)
+  }
+  dend[342] {pt3dclear()
+	pt3dadd(265.315, 60.44, -14.65, 3.15)
+	pt3dadd(267.712, 54.827, -14.25, 0.788)
+  }
+  dend[343] {pt3dclear()
+	pt3dadd(254.313, 57.296, -17.55, 5.512)
+	pt3dadd(253.132, 48.47, -17.75, 0.788)
+  }
+  dend[344] {pt3dclear()
+	pt3dadd(248.237, 60.862, -15.85, 5.512)
+	pt3dadd(247.969, 54.337, -17.45, 0.788)
+	pt3dadd(249.025, 52.071, -17.45, 0.788)
+	pt3dadd(248.318, 49.093, -16.55, 0.788)
+  }
+  dend[345] {pt3dclear()
+	pt3dadd(248.318, 49.093, -16.55, 0.788)
+	pt3dadd(250.226, 46.894, -16.75, 0.788)
+  }
+  dend[346] {pt3dclear()
+	pt3dadd(248.318, 49.093, -16.55, 0.788)
+	pt3dadd(246.07, 48.707, -16.55, 0.788)
+  }
+  dend[347] {pt3dclear()
+	pt3dadd(231.036, 78.108, -20.05, 8.662)
+	pt3dadd(236.662, 82.607, -19.15, 3.936)
+	pt3dadd(239.81, 84.848, -19.35, 6.3)
+	pt3dadd(246.022, 89.51, -17.55, 6.3)
+  }
+  dend[348] {pt3dclear()
+	pt3dadd(246.022, 89.51, -17.55, 6.3)
+	pt3dadd(249.866, 95.936, -18.95, 6.3)
+	pt3dadd(254.664, 99.608, -15.45, 7.874)
+  }
+  dend[349] {pt3dclear()
+	pt3dadd(254.664, 99.608, -15.45, 7.874)
+	pt3dadd(262.148, 96.809, -11.45, 2.362)
+  }
+  dend[350] {pt3dclear()
+	pt3dadd(262.148, 96.809, -11.45, 2.362)
+	pt3dadd(270.762, 94.426, -11.25, 3.15)
+  }
+  dend[351] {pt3dclear()
+	pt3dadd(270.762, 94.426, -11.25, 3.15)
+	pt3dadd(274.748, 91.32, -8.45, 1.574)
+  }
+  dend[352] {pt3dclear()
+	pt3dadd(274.748, 91.32, -8.45, 1.574)
+	pt3dadd(283.454, 90.634, -13.05, 2.362)
+	pt3dadd(286.123, 88.459, -14.85, 1.574)
+  }
+  dend[353] {pt3dclear()
+	pt3dadd(286.123, 88.459, -14.85, 1.574)
+	pt3dadd(289.185, 84.259, -14.95, 1.574)
+	pt3dadd(294.942, 82.089, -19.55, 1.574)
+	pt3dadd(298.101, 81.466, -20.25, 1.574)
+  }
+  dend[354] {pt3dclear()
+	pt3dadd(298.101, 81.466, -20.25, 1.574)
+	pt3dadd(304.027, 80.588, -19.95, 1.574)
+	pt3dadd(308.496, 75.5, -23.05, 1.574)
+	pt3dadd(308.562, 74.648, -23.05, 1.574)
+  }
+  dend[355] {pt3dclear()
+	pt3dadd(298.101, 81.466, -20.25, 1.574)
+	pt3dadd(301.669, 74.523, -21.05, 1.574)
+	pt3dadd(305.505, 72.45, -23.95, 1.574)
+	pt3dadd(306.435, 70.456, -23.75, 1.574)
+  }
+  dend[356] {pt3dclear()
+	pt3dadd(286.123, 88.459, -14.85, 1.574)
+	pt3dadd(287.58, 91.014, -12.15, 0.788)
+	pt3dadd(286.457, 94.131, -14.45, 0.788)
+  }
+}
+proc shape3d_6() {
+  dend[356] {  }
+  dend[357] {pt3dclear()
+	pt3dadd(274.748, 91.32, -8.45, 1.574)
+	pt3dadd(276.101, 88.42, -11.15, 0.788)
+  }
+  dend[358] {pt3dclear()
+	pt3dadd(276.101, 88.42, -11.15, 0.788)
+	pt3dadd(277.326, 85.791, -10.05, 0.788)
+  }
+  dend[359] {pt3dclear()
+	pt3dadd(276.101, 88.42, -11.15, 0.788)
+	pt3dadd(273.563, 87.236, -7.15, 0.788)
+  }
+  dend[360] {pt3dclear()
+	pt3dadd(270.762, 94.426, -11.25, 3.15)
+	pt3dadd(278.109, 96.418, -14.65, 1.574)
+	pt3dadd(284.331, 96.561, -10.15, 1.574)
+	pt3dadd(287.576, 97.412, -7.95, 1.574)
+  }
+  dend[361] {pt3dclear()
+	pt3dadd(287.576, 97.412, -7.95, 1.574)
+	pt3dadd(296.245, 97.04, -12.85, 1.574)
+  }
+  dend[362] {pt3dclear()
+	pt3dadd(287.576, 97.412, -7.95, 1.574)
+	pt3dadd(286.592, 100.704, -12.35, 0.788)
+  }
+  dend[363] {pt3dclear()
+	pt3dadd(262.148, 96.809, -11.45, 2.362)
+	pt3dadd(262.962, 92.223, -11.85, 0.788)
+  }
+  dend[364] {pt3dclear()
+	pt3dadd(254.664, 99.608, -15.45, 7.874)
+	pt3dadd(260.671, 108.257, -9.35, 4.724)
+  }
+  dend[365] {pt3dclear()
+	pt3dadd(260.671, 108.257, -9.35, 4.724)
+	pt3dadd(268.622, 111.082, -8.95, 2.362)
+  }
+  dend[366] {pt3dclear()
+	pt3dadd(268.622, 111.082, -8.95, 2.362)
+	pt3dadd(277.588, 111.732, -11.85, 2.362)
+  }
+  dend[367] {pt3dclear()
+	pt3dadd(277.588, 111.732, -11.85, 2.362)
+	pt3dadd(282.161, 112.099, -12.65, 2.362)
+  }
+  dend[368] {pt3dclear()
+	pt3dadd(282.161, 112.099, -12.65, 2.362)
+	pt3dadd(289.79, 109.699, -15.15, 1.574)
+  }
+  dend[369] {pt3dclear()
+	pt3dadd(289.79, 109.699, -15.15, 1.574)
+	pt3dadd(294.103, 107.075, -12.55, 0.788)
+  }
+  dend[370] {pt3dclear()
+	pt3dadd(294.103, 107.075, -12.55, 0.788)
+	pt3dadd(298.126, 105.31, -13.55, 0.788)
+  }
+  dend[371] {pt3dclear()
+	pt3dadd(294.103, 107.075, -12.55, 0.788)
+	pt3dadd(292.199, 104.533, -12.35, 0.788)
+  }
+  dend[372] {pt3dclear()
+	pt3dadd(289.79, 109.699, -15.15, 1.574)
+	pt3dadd(291.894, 112.997, -11.45, 0.788)
+  }
+  dend[373] {pt3dclear()
+	pt3dadd(282.161, 112.099, -12.65, 2.362)
+	pt3dadd(285.128, 115.91, -13.75, 1.574)
+	pt3dadd(286.817, 125.304, -14.75, 1.574)
+  }
+  dend[374] {pt3dclear()
+	pt3dadd(277.588, 111.732, -11.85, 2.362)
+	pt3dadd(281.22, 116.957, -9.05, 0.788)
+	pt3dadd(283.034, 121.113, -10.95, 0.788)
+  }
+  dend[375] {pt3dclear()
+	pt3dadd(268.622, 111.082, -8.95, 2.362)
+	pt3dadd(272.395, 119.793, -8.85, 1.574)
+  }
+  dend[376] {pt3dclear()
+	pt3dadd(272.395, 119.793, -8.85, 1.574)
+	pt3dadd(274.342, 127.211, -9.75, 2.362)
+  }
+  dend[377] {pt3dclear()
+	pt3dadd(274.342, 127.211, -9.75, 2.362)
+	pt3dadd(278.692, 129.239, -7.55, 1.574)
+	pt3dadd(280.905, 133.25, -7.85, 0.788)
+	pt3dadd(283.46, 133.449, -7.85, 0.788)
+  }
+  dend[378] {pt3dclear()
+	pt3dadd(283.46, 133.449, -7.85, 0.788)
+	pt3dadd(285.997, 131.321, -7.85, 0.788)
+  }
+  dend[379] {pt3dclear()
+	pt3dadd(283.46, 133.449, -7.85, 0.788)
+	pt3dadd(285.147, 136.221, -7.85, 0.788)
+  }
+  dend[380] {pt3dclear()
+	pt3dadd(274.342, 127.211, -9.75, 2.362)
+	pt3dadd(273.492, 132.11, -7.35, 1.574)
+	pt3dadd(276.169, 136.779, -6.65, 1.574)
+  }
+  dend[381] {pt3dclear()
+	pt3dadd(276.169, 136.779, -6.65, 1.574)
+	pt3dadd(274.418, 138.169, -5.75, 1.574)
+  }
+  dend[382] {pt3dclear()
+	pt3dadd(274.418, 138.169, -5.75, 1.574)
+	pt3dadd(275.978, 144.524, -7.35, 0.788)
+  }
+  dend[383] {pt3dclear()
+	pt3dadd(274.418, 138.169, -5.75, 1.574)
+	pt3dadd(271.193, 141.3, -3.65, 0.788)
+  }
+  dend[384] {pt3dclear()
+	pt3dadd(276.169, 136.779, -6.65, 1.574)
+	pt3dadd(279.933, 136.99, -6.95, 0.788)
+  }
+  dend[385] {pt3dclear()
+	pt3dadd(272.395, 119.793, -8.85, 1.574)
+	pt3dadd(277.632, 119.918, -4.35, 0.788)
+	pt3dadd(278.491, 123.518, -4.35, 0.788)
+  }
+  dend[386] {pt3dclear()
+	pt3dadd(260.671, 108.257, -9.35, 4.724)
+	pt3dadd(260.044, 113.151, -6.35, 1.574)
+	pt3dadd(259.315, 117.555, -3.05, 1.574)
+	pt3dadd(260.241, 125.27, -4.05, 1.574)
+	pt3dadd(262.11, 131.437, -4.05, 0.788)
+	pt3dadd(266.026, 135.58, -4.45, 0.788)
+  }
+  dend[387] {pt3dclear()
+	pt3dadd(246.022, 89.51, -17.55, 6.3)
+	pt3dadd(248.963, 85.806, -14.45, 0.788)
+  }
+  dend[388] {pt3dclear()
+	pt3dadd(248.963, 85.806, -14.45, 0.788)
+	pt3dadd(248.672, 81.698, -9.95, 0.788)
+  }
+  dend[389] {pt3dclear()
+	pt3dadd(248.963, 85.806, -14.45, 0.788)
+	pt3dadd(254.967, 82.868, -9.85, 0.788)
+  }
+  dend[390] {pt3dclear()
+	pt3dadd(206.097, 95.388, -20.95, 10.236)
+	pt3dadd(211.022, 100.443, -19.95, 5.512)
+	pt3dadd(212.354, 108.235, -15.45, 7.874)
+	pt3dadd(217.415, 123.174, -7.95, 7.086)
+	pt3dadd(217.315, 132.616, -6.05, 7.086)
+  }
+  dend[391] {pt3dclear()
+	pt3dadd(217.315, 132.616, -6.05, 7.086)
+	pt3dadd(223.545, 139.604, -3.95, 5.512)
+  }
+  dend[392] {pt3dclear()
+	pt3dadd(223.545, 139.604, -3.95, 5.512)
+	pt3dadd(232.251, 142.229, -0.15, 6.3)
+  }
+  dend[393] {pt3dclear()
+	pt3dadd(232.251, 142.229, -0.15, 6.3)
+	pt3dadd(237.78, 144.807, -1.15, 3.15)
+  }
+  dend[394] {pt3dclear()
+	pt3dadd(237.78, 144.807, -1.15, 3.15)
+	pt3dadd(240.439, 148.806, -0.45, 5.512)
+  }
+  dend[395] {pt3dclear()
+	pt3dadd(240.439, 148.806, -0.45, 5.512)
+	pt3dadd(242.206, 157.795, -0.65, 6.3)
+  }
+  dend[396] {pt3dclear()
+	pt3dadd(242.206, 157.795, -0.65, 6.3)
+	pt3dadd(245.736, 164.185, 1.45, 4.724)
+  }
+  dend[397] {pt3dclear()
+	pt3dadd(245.736, 164.185, 1.45, 4.724)
+	pt3dadd(249.737, 169.803, 1.75, 3.936)
+  }
+  dend[398] {pt3dclear()
+	pt3dadd(249.737, 169.803, 1.75, 3.936)
+	pt3dadd(255.185, 167.819, 4.45, 2.362)
+	pt3dadd(260.193, 166.072, 4.45, 2.362)
+  }
+  dend[399] {pt3dclear()
+	pt3dadd(260.193, 166.072, 4.45, 2.362)
+	pt3dadd(262.088, 160.115, 1.85, 2.362)
+  }
+  dend[400] {pt3dclear()
+	pt3dadd(262.088, 160.115, 1.85, 2.362)
+	pt3dadd(265.579, 156.888, 1.65, 1.574)
+  }
+  dend[401] {pt3dclear()
+	pt3dadd(265.579, 156.888, 1.65, 1.574)
+	pt3dadd(271.71, 155.333, -1.75, 1.574)
+	pt3dadd(279.05, 153.791, -2.25, 1.574)
+  }
+  dend[402] {pt3dclear()
+	pt3dadd(279.05, 153.791, -2.25, 1.574)
+	pt3dadd(283.122, 153.814, -5.15, 1.574)
+  }
+  dend[403] {pt3dclear()
+	pt3dadd(279.05, 153.791, -2.25, 1.574)
+	pt3dadd(276.586, 156.945, -1.05, 0.788)
+  }
+  dend[404] {pt3dclear()
+	pt3dadd(265.579, 156.888, 1.65, 1.574)
+	pt3dadd(265.566, 153.13, -0.15, 0.788)
+  }
+  dend[405] {pt3dclear()
+	pt3dadd(262.088, 160.115, 1.85, 2.362)
+	pt3dadd(260.999, 154.642, 0.65, 0.788)
+  }
+  dend[406] {pt3dclear()
+	pt3dadd(260.193, 166.072, 4.45, 2.362)
+	pt3dadd(266.459, 171.09, 3.95, 1.574)
+	pt3dadd(265.451, 173.489, 4.45, 1.574)
+  }
+  dend[407] {pt3dclear()
+	pt3dadd(265.451, 173.489, 4.45, 1.574)
+	pt3dadd(266.847, 175.464, 1.65, 0.788)
+  }
+  dend[408] {pt3dclear()
+	pt3dadd(265.451, 173.489, 4.45, 1.574)
+	pt3dadd(268.574, 171.525, 2.55, 0.788)
+  }
+  dend[409] {pt3dclear()
+	pt3dadd(249.737, 169.803, 1.75, 3.936)
+	pt3dadd(250.542, 174.702, 2.85, 2.362)
+	pt3dadd(252.114, 181.504, 2.85, 2.362)
+	pt3dadd(252.46, 185.968, 3.85, 2.362)
+  }
+  dend[410] {pt3dclear()
+	pt3dadd(252.46, 185.968, 3.85, 2.362)
+	pt3dadd(253.67, 190.946, 6.65, 2.362)
+  }
+  dend[411] {pt3dclear()
+	pt3dadd(253.67, 190.946, 6.65, 2.362)
+	pt3dadd(254.365, 193.477, 2.55, 2.362)
+  }
+  dend[412] {pt3dclear()
+	pt3dadd(254.365, 193.477, 2.55, 2.362)
+	pt3dadd(254.349, 199.427, 4.45, 1.574)
+  }
+  dend[413] {pt3dclear()
+	pt3dadd(254.349, 199.427, 4.45, 1.574)
+	pt3dadd(251.091, 212.803, 8.45, 1.574)
+  }
+  dend[414] {pt3dclear()
+	pt3dadd(251.091, 212.803, 8.45, 1.574)
+	pt3dadd(255.889, 177.195, 2.65, 1.574)
+  }
+  dend[415] {pt3dclear()
+	pt3dadd(255.889, 177.195, 2.65, 1.574)
+	pt3dadd(260.421, 182.619, 3.75, 1.574)
+	pt3dadd(261.6, 183.168, 2.85, 1.574)
+  }
+  dend[416] {pt3dclear()
+	pt3dadd(261.6, 183.168, 2.85, 1.574)
+	pt3dadd(262.743, 187.342, 1.25, 1.574)
+  }
+  dend[417] {pt3dclear()
+	pt3dadd(262.743, 187.342, 1.25, 1.574)
+	pt3dadd(268.651, 187.449, 8.95, 0.788)
+  }
+  dend[418] {pt3dclear()
+	pt3dadd(262.743, 187.342, 1.25, 1.574)
+	pt3dadd(265.034, 192.604, 2.95, 0.788)
+	pt3dadd(266.43, 196.234, 2.95, 0.788)
+  }
+  dend[419] {pt3dclear()
+	pt3dadd(261.6, 183.168, 2.85, 1.574)
+	pt3dadd(263.333, 181.108, 4.95, 0.788)
+  }
+  dend[420] {pt3dclear()
+	pt3dadd(255.889, 177.195, 2.65, 1.574)
+	pt3dadd(254.827, 180.893, 1.05, 0.788)
+  }
+  dend[421] {pt3dclear()
+	pt3dadd(251.091, 212.803, 8.45, 1.574)
+	pt3dadd(249.667, 219.643, 8.45, 0.788)
+  }
+  dend[422] {pt3dclear()
+	pt3dadd(254.349, 199.427, 4.45, 1.574)
+	pt3dadd(259.189, 204.664, 3.85, 1.574)
+  }
+  dend[423] {pt3dclear()
+	pt3dadd(254.365, 193.477, 2.55, 2.362)
+	pt3dadd(259.972, 195.65, 2.55, 1.574)
+  }
+  dend[424] {pt3dclear()
+	pt3dadd(253.67, 190.946, 6.65, 2.362)
+	pt3dadd(249.232, 198.807, 6.55, 0.788)
+  }
+  dend[425] {pt3dclear()
+	pt3dadd(249.232, 198.807, 6.55, 0.788)
+	pt3dadd(247.3, 205.078, 7.75, 0.788)
+  }
+  dend[426] {pt3dclear()
+	pt3dadd(249.232, 198.807, 6.55, 0.788)
+	pt3dadd(251.221, 202.823, 6.55, 0.788)
+  }
+  dend[427] {pt3dclear()
+	pt3dadd(252.46, 185.968, 3.85, 2.362)
+	pt3dadd(257.354, 188.25, 5.05, 0.788)
+  }
+  dend[428] {pt3dclear()
+	pt3dadd(245.736, 164.185, 1.45, 4.724)
+	pt3dadd(246.209, 170.033, 2.65, 1.574)
+	pt3dadd(245.838, 182.659, 9.75, 1.574)
+  }
+  dend[429] {pt3dclear()
+	pt3dadd(245.838, 182.659, 9.75, 1.574)
+	pt3dadd(243.532, 189.97, 10.35, 1.574)
+	pt3dadd(245.033, 199.055, 9.65, 0.788)
+  }
+  dend[430] {pt3dclear()
+	pt3dadd(245.033, 199.055, 9.65, 0.788)
+	pt3dadd(242.907, 201.485, 8.55, 0.788)
+  }
+  dend[431] {pt3dclear()
+	pt3dadd(245.033, 199.055, 9.65, 0.788)
+	pt3dadd(246.394, 203, 11.75, 0.788)
+  }
+  dend[432] {pt3dclear()
+	pt3dadd(245.838, 182.659, 9.75, 1.574)
+	pt3dadd(248.913, 182.217, 6.05, 0.788)
+  }
+  dend[433] {pt3dclear()
+	pt3dadd(242.206, 157.795, -0.65, 6.3)
+	pt3dadd(241.037, 167.401, 3.65, 2.362)
+	pt3dadd(239.571, 174.33, 6.15, 1.574)
+	pt3dadd(236.698, 185.459, 9.95, 1.574)
+	pt3dadd(236.101, 188.16, 9.95, 1.574)
+	pt3dadd(234.616, 191.108, 7.75, 1.574)
+	pt3dadd(231.369, 201.621, 11.55, 2.362)
+  }
+  dend[434] {pt3dclear()
+	pt3dadd(231.369, 201.621, 11.55, 2.362)
+	pt3dadd(223.208, 204.215, 10.45, 0.788)
+	pt3dadd(220.249, 208.904, 10.45, 0.788)
+  }
+  dend[435] {pt3dclear()
+	pt3dadd(231.369, 201.621, 11.55, 2.362)
+	pt3dadd(233.607, 211.492, 16.35, 2.362)
+	pt3dadd(235.372, 215.515, 15.15, 2.362)
+  }
+  dend[436] {pt3dclear()
+	pt3dadd(235.372, 215.515, 15.15, 2.362)
+	pt3dadd(235.222, 219.858, 16.95, 2.362)
+  }
+  dend[437] {pt3dclear()
+	pt3dadd(235.222, 219.858, 16.95, 2.362)
+	pt3dadd(234.04, 225.707, 14.55, 1.574)
+	pt3dadd(232.019, 235.246, 19.25, 1.574)
+  }
+  dend[438] {pt3dclear()
+	pt3dadd(235.222, 219.858, 16.95, 2.362)
+	pt3dadd(240.649, 226.913, 14.65, 1.574)
+	pt3dadd(242.765, 230.658, 15.25, 1.574)
+  }
+  dend[439] {pt3dclear()
+	pt3dadd(235.372, 215.515, 15.15, 2.362)
+	pt3dadd(237.487, 215.949, 13.85, 0.788)
+  }
+  dend[440] {pt3dclear()
+	pt3dadd(240.439, 148.806, -0.45, 5.512)
+  }
+}
+proc shape3d_7() {
+  dend[440] {	pt3dadd(250.153, 147.377, 1.95, 1.574)
+  }
+  dend[441] {pt3dclear()
+	pt3dadd(250.153, 147.377, 1.95, 1.574)
+	pt3dadd(255.07, 145.588, -0.85, 1.574)
+  }
+  dend[442] {pt3dclear()
+	pt3dadd(255.07, 145.588, -0.85, 1.574)
+	pt3dadd(258.997, 145.212, 1.75, 1.574)
+  }
+  dend[443] {pt3dclear()
+	pt3dadd(258.997, 145.212, 1.75, 1.574)
+	pt3dadd(264.349, 144.618, 1.15, 0.788)
+	pt3dadd(268.958, 143.016, -0.85, 0.788)
+  }
+  dend[444] {pt3dclear()
+	pt3dadd(258.997, 145.212, 1.75, 1.574)
+	pt3dadd(260.225, 150.86, 1.95, 0.788)
+  }
+  dend[445] {pt3dclear()
+	pt3dadd(255.07, 145.588, -0.85, 1.574)
+	pt3dadd(255.129, 141.202, -2.85, 1.574)
+  }
+  dend[446] {pt3dclear()
+	pt3dadd(250.153, 147.377, 1.95, 1.574)
+	pt3dadd(251.082, 142.073, 1.95, 0.788)
+  }
+  dend[447] {pt3dclear()
+	pt3dadd(237.78, 144.807, -1.15, 3.15)
+	pt3dadd(242.455, 142.353, 3.85, 1.574)
+  }
+  dend[448] {pt3dclear()
+	pt3dadd(232.251, 142.229, -0.15, 6.3)
+	pt3dadd(235.337, 137.269, 0.45, 0.788)
+	pt3dadd(240.344, 133.866, 1.25, 0.788)
+	pt3dadd(241.401, 131.6, 1.25, 0.788)
+  }
+  dend[449] {pt3dclear()
+	pt3dadd(241.401, 131.6, 1.25, 0.788)
+	pt3dadd(242.438, 125.353, 2.15, 0.788)
+  }
+  dend[450] {pt3dclear()
+	pt3dadd(241.401, 131.6, 1.25, 0.788)
+	pt3dadd(245.992, 130.983, -0.05, 0.788)
+  }
+  dend[451] {pt3dclear()
+	pt3dadd(223.545, 139.604, -3.95, 5.512)
+	pt3dadd(221.97, 145.821, -0.25, 0.788)
+	pt3dadd(223.712, 152.26, 5.85, 0.788)
+  }
+  dend[452] {pt3dclear()
+	pt3dadd(217.315, 132.616, -6.05, 7.086)
+	pt3dadd(215.504, 138.392, -5.25, 3.15)
+	pt3dadd(212.365, 147.962, -2.55, 3.936)
+	pt3dadd(208.44, 153.304, -4.25, 1.574)
+	pt3dadd(202.856, 166.699, 3.15, 3.936)
+	pt3dadd(199.512, 175.291, 5.35, 3.936)
+  }
+  dend[453] {pt3dclear()
+	pt3dadd(199.512, 175.291, 5.35, 3.936)
+	pt3dadd(194.39, 179.412, 15.85, 2.362)
+	pt3dadd(188.682, 183.371, 15.85, 2.362)
+	pt3dadd(187.36, 187.389, 22.65, 1.574)
+  }
+  dend[454] {pt3dclear()
+	pt3dadd(187.36, 187.389, 22.65, 1.574)
+	pt3dadd(189.15, 192.306, 28.45, 1.574)
+  }
+  dend[455] {pt3dclear()
+	pt3dadd(189.15, 192.306, 28.45, 1.574)
+	pt3dadd(193.633, 194.286, 29.45, 1.574)
+	pt3dadd(197.724, 198.29, 29.45, 1.574)
+	pt3dadd(200.705, 207.514, 34.65, 1.574)
+	pt3dadd(200.502, 214.812, 38.45, 1.574)
+	pt3dadd(204.908, 222.163, 33.85, 0.788)
+  }
+  dend[456] {pt3dclear()
+	pt3dadd(189.15, 192.306, 28.45, 1.574)
+	pt3dadd(188.964, 195.308, 30.55, 0.788)
+  }
+  dend[457] {pt3dclear()
+	pt3dadd(188.964, 195.308, 30.55, 0.788)
+	pt3dadd(189.683, 198.733, 30.55, 0.788)
+  }
+  dend[458] {pt3dclear()
+	pt3dadd(188.964, 195.308, 30.55, 0.788)
+	pt3dadd(185.66, 197.188, 30.55, 0.788)
+  }
+  dend[459] {pt3dclear()
+	pt3dadd(187.36, 187.389, 22.65, 1.574)
+	pt3dadd(181.659, 193.226, 26.35, 3.15)
+	pt3dadd(179.274, 197.631, 29.35, 2.362)
+	pt3dadd(176.888, 198.725, 26.65, 2.362)
+	pt3dadd(172.543, 213.25, 35.65, 3.15)
+  }
+  dend[460] {pt3dclear()
+	pt3dadd(172.543, 213.25, 35.65, 3.15)
+	pt3dadd(175.368, 226.594, 35.35, 2.362)
+  }
+  dend[461] {pt3dclear()
+	pt3dadd(175.368, 226.594, 35.35, 2.362)
+	pt3dadd(176.482, 234.616, 41.65, 2.362)
+  }
+  dend[462] {pt3dclear()
+	pt3dadd(176.482, 234.616, 41.65, 2.362)
+	pt3dadd(176.253, 237.709, 39.95, 1.574)
+  }
+  dend[463] {pt3dclear()
+	pt3dadd(176.253, 237.709, 39.95, 1.574)
+	pt3dadd(176.852, 239.975, 43.05, 1.574)
+	pt3dadd(174.474, 246.258, 43.05, 1.574)
+	pt3dadd(176.552, 248.662, 46.45, 1.574)
+  }
+  dend[464] {pt3dclear()
+	pt3dadd(176.552, 248.662, 46.45, 1.574)
+	pt3dadd(178.451, 252.637, 46.45, 0.788)
+	pt3dadd(178.392, 258.678, 46.45, 0.788)
+  }
+  dend[465] {pt3dclear()
+	pt3dadd(176.552, 248.662, 46.45, 1.574)
+	pt3dadd(179.331, 247.199, 44.35, 0.788)
+  }
+  dend[466] {pt3dclear()
+	pt3dadd(176.253, 237.709, 39.95, 1.574)
+	pt3dadd(172.556, 238.303, 41.75, 0.788)
+	pt3dadd(163.467, 247.856, 41.75, 0.788)
+	pt3dadd(160.726, 253.971, 44.05, 0.788)
+	pt3dadd(156.305, 259.192, 44.05, 0.788)
+  }
+  dend[467] {pt3dclear()
+	pt3dadd(176.482, 234.616, 41.65, 2.362)
+	pt3dadd(179.044, 236.694, 42.25, 1.574)
+  }
+  dend[468] {pt3dclear()
+	pt3dadd(179.044, 236.694, 42.25, 1.574)
+	pt3dadd(180.809, 239.061, 42.25, 1.574)
+	pt3dadd(183.498, 242.522, 43.15, 1.574)
+  }
+  dend[469] {pt3dclear()
+	pt3dadd(183.498, 242.522, 43.15, 1.574)
+	pt3dadd(188.043, 248.393, 43.45, 1.574)
+	pt3dadd(190.697, 255.478, 40.25, 1.574)
+	pt3dadd(194.372, 260.612, 40.25, 1.574)
+	pt3dadd(194.119, 266.122, 43.05, 0.788)
+  }
+  dend[470] {pt3dclear()
+	pt3dadd(183.498, 242.522, 43.15, 1.574)
+	pt3dadd(181.161, 245.404, 43.15, 0.788)
+  }
+  dend[471] {pt3dclear()
+	pt3dadd(179.044, 236.694, 42.25, 1.574)
+	pt3dadd(180.178, 232.368, 41.65, 0.788)
+  }
+  dend[472] {pt3dclear()
+	pt3dadd(175.368, 226.594, 35.35, 2.362)
+	pt3dadd(181.143, 226.749, 38.25, 0.788)
+	pt3dadd(186.653, 225.346, 37.35, 0.788)
+  }
+  dend[473] {pt3dclear()
+	pt3dadd(186.653, 225.346, 37.35, 0.788)
+	pt3dadd(190.96, 225.81, 37.35, 0.788)
+  }
+  dend[474] {pt3dclear()
+	pt3dadd(190.96, 225.81, 37.35, 0.788)
+	pt3dadd(194.748, 225.259, 35.75, 0.788)
+  }
+  dend[475] {pt3dclear()
+	pt3dadd(190.96, 225.81, 37.35, 0.788)
+	pt3dadd(193.86, 227.162, 37.35, 0.788)
+  }
+  dend[476] {pt3dclear()
+	pt3dadd(186.653, 225.346, 37.35, 0.788)
+	pt3dadd(188.277, 222.573, 37.35, 0.788)
+  }
+  dend[477] {pt3dclear()
+	pt3dadd(172.543, 213.25, 35.65, 3.15)
+	pt3dadd(169.089, 217.818, 37.25, 1.574)
+	pt3dadd(168.657, 228.209, 38.25, 0.788)
+	pt3dadd(168.702, 238.05, 43.65, 0.788)
+  }
+  dend[478] {pt3dclear()
+	pt3dadd(199.512, 175.291, 5.35, 3.936)
+	pt3dadd(200.498, 181.93, 12.05, 1.574)
+	pt3dadd(207.839, 185.353, 19.05, 1.574)
+	pt3dadd(210.813, 189.388, 23.55, 1.574)
+  }
+  dend[479] {pt3dclear()
+	pt3dadd(101.832, 137.024, -31.05, 15.748)
+	pt3dadd(105.085, 148.03, -28.45, 7.086)
+	pt3dadd(107.372, 158.034, -25.85, 7.086)
+	pt3dadd(114.254, 162.678, -14.45, 4.724)
+	pt3dadd(123.639, 172.129, -12.15, 6.3)
+	pt3dadd(127.811, 184.005, -8.35, 7.086)
+	pt3dadd(125.957, 184.906, -1.45, 7.874)
+  }
+  dend[480] {pt3dclear()
+	pt3dadd(125.957, 184.906, -1.45, 7.874)
+	pt3dadd(126.586, 189.944, 0.55, 7.086)
+  }
+  dend[481] {pt3dclear()
+	pt3dadd(126.586, 189.944, 0.55, 7.086)
+	pt3dadd(128.993, 196.142, 1.35, 6.3)
+	pt3dadd(128.897, 200.842, 1.35, 4.724)
+	pt3dadd(129.086, 204.46, 1.35, 6.3)
+	pt3dadd(126.496, 212.852, 7.15, 6.3)
+  }
+  dend[482] {pt3dclear()
+	pt3dadd(126.496, 212.852, 7.15, 6.3)
+	pt3dadd(121.858, 216.648, 15.35, 3.936)
+	pt3dadd(114.338, 223.072, 20.85, 2.362)
+	pt3dadd(109.392, 227.054, 26.15, 3.936)
+  }
+  dend[483] {pt3dclear()
+	pt3dadd(109.392, 227.054, 26.15, 3.936)
+	pt3dadd(105.479, 232.843, 30.65, 4.724)
+  }
+  dend[484] {pt3dclear()
+	pt3dadd(105.479, 232.843, 30.65, 4.724)
+	pt3dadd(101.867, 234.91, 29.65, 3.936)
+	pt3dadd(100.478, 236.469, 31.75, 4.724)
+  }
+  dend[485] {pt3dclear()
+	pt3dadd(100.478, 236.469, 31.75, 4.724)
+	pt3dadd(100.419, 240.855, 34.55, 3.15)
+	pt3dadd(97.34, 247.695, 39.65, 5.512)
+  }
+  dend[486] {pt3dclear()
+	pt3dadd(97.34, 247.695, 39.65, 5.512)
+	pt3dadd(89.675, 252.065, 42.85, 2.362)
+  }
+  dend[487] {pt3dclear()
+	pt3dadd(89.675, 252.065, 42.85, 2.362)
+	pt3dadd(83.883, 259.515, 48.25, 2.362)
+  }
+  dend[488] {pt3dclear()
+	pt3dadd(83.883, 259.515, 48.25, 2.362)
+	pt3dadd(77.826, 267.062, 50.25, 2.362)
+	pt3dadd(75.471, 270.93, 56.35, 2.362)
+  }
+  dend[489] {pt3dclear()
+	pt3dadd(75.471, 270.93, 56.35, 2.362)
+	pt3dadd(70.168, 274.967, 56.35, 1.574)
+	pt3dadd(64.388, 277.898, 56.35, 1.574)
+	pt3dadd(62.745, 280.001, 58.75, 1.574)
+  }
+  dend[490] {pt3dclear()
+	pt3dadd(75.471, 270.93, 56.35, 2.362)
+	pt3dadd(69.469, 280.489, 59.15, 1.574)
+  }
+  dend[491] {pt3dclear()
+	pt3dadd(83.883, 259.515, 48.25, 2.362)
+	pt3dadd(80.602, 255.668, 47.15, 1.574)
+  }
+  dend[492] {pt3dclear()
+	pt3dadd(89.675, 252.065, 42.85, 2.362)
+	pt3dadd(87.112, 248.332, 42.55, 1.574)
+	pt3dadd(85.185, 249.861, 39.15, 1.574)
+  }
+  dend[493] {pt3dclear()
+	pt3dadd(97.34, 247.695, 39.65, 5.512)
+	pt3dadd(98.567, 251.687, 42.55, 3.15)
+	pt3dadd(97.994, 255.282, 50.55, 3.15)
+  }
+  dend[494] {pt3dclear()
+	pt3dadd(97.994, 255.282, 50.55, 3.15)
+	pt3dadd(94.952, 261.808, 48.85, 3.936)
+	pt3dadd(93.002, 269.064, 55.65, 3.15)
+  }
+  dend[495] {pt3dclear()
+	pt3dadd(93.002, 269.064, 55.65, 3.15)
+	pt3dadd(89.735, 272.285, 54.05, 2.362)
+	pt3dadd(90.335, 279.516, 60.35, 2.362)
+	pt3dadd(78.401, 291.384, 65.05, 2.362)
+  }
+  dend[496] {pt3dclear()
+	pt3dadd(78.401, 291.384, 65.05, 2.362)
+	pt3dadd(74.535, 292.34, 65.85, 2.362)
+  }
+  dend[497] {pt3dclear()
+	pt3dadd(74.535, 292.34, 65.85, 2.362)
+	pt3dadd(69.25, 293.737, 65.85, 2.362)
+  }
+  dend[498] {pt3dclear()
+	pt3dadd(69.25, 293.737, 65.85, 2.362)
+	pt3dadd(64.943, 296.584, 69.65, 2.362)
+  }
+  dend[499] {pt3dclear()
+	pt3dadd(64.943, 296.584, 69.65, 2.362)
+	pt3dadd(61.351, 305.943, 69.85, 1.574)
+	pt3dadd(57.407, 308.958, 70.35, 1.574)
+  }
+  dend[500] {pt3dclear()
+	pt3dadd(64.943, 296.584, 69.65, 2.362)
+	pt3dadd(61.771, 295.104, 70.25, 1.574)
+	pt3dadd(58.473, 297.208, 72.65, 1.574)
+  }
+  dend[501] {pt3dclear()
+	pt3dadd(69.25, 293.737, 65.85, 2.362)
+	pt3dadd(70.568, 297.772, 64.65, 1.574)
+  }
+  dend[502] {pt3dclear()
+	pt3dadd(74.535, 292.34, 65.85, 2.362)
+	pt3dadd(73.695, 289.41, 65.85, 1.574)
+  }
+  dend[503] {pt3dclear()
+	pt3dadd(78.401, 291.384, 65.05, 2.362)
+	pt3dadd(76.222, 296.768, 67.25, 1.574)
+  }
+  dend[504] {pt3dclear()
+	pt3dadd(76.222, 296.768, 67.25, 1.574)
+	pt3dadd(66.818, 302.975, 68.45, 1.574)
+  }
+  dend[505] {pt3dclear()
+	pt3dadd(76.222, 296.768, 67.25, 1.574)
+	pt3dadd(78.29, 302.035, 66.15, 1.574)
+	pt3dadd(77.53, 306.977, 62.15, 0.788)
+  }
+  dend[506] {pt3dclear()
+	pt3dadd(93.002, 269.064, 55.65, 3.15)
+	pt3dadd(97.342, 275.611, 55.65, 3.15)
+  }
+  dend[507] {pt3dclear()
+	pt3dadd(97.342, 275.611, 55.65, 3.15)
+	pt3dadd(103.982, 279.59, 59.55, 3.15)
+  }
+  dend[508] {pt3dclear()
+	pt3dadd(103.982, 279.59, 59.55, 3.15)
+	pt3dadd(105.584, 280.889, 58.85, 3.15)
+  }
+  dend[509] {pt3dclear()
+	pt3dadd(105.584, 280.889, 58.85, 3.15)
+	pt3dadd(109.204, 287.322, 60.25, 3.15)
+  }
+  dend[510] {pt3dclear()
+	pt3dadd(109.204, 287.322, 60.25, 3.15)
+	pt3dadd(110.572, 296.455, 60.05, 2.362)
+	pt3dadd(108.828, 303.035, 63.95, 1.574)
+  }
+  dend[511] {pt3dclear()
+	pt3dadd(108.828, 303.035, 63.95, 1.574)
+	pt3dadd(103.58, 309.084, 63.95, 1.574)
+  }
+  dend[512] {pt3dclear()
+	pt3dadd(108.828, 303.035, 63.95, 1.574)
+  }
+}
+proc shape3d_8() {
+  dend[512] {	pt3dadd(109.857, 309.583, 63.95, 1.574)
+	pt3dadd(111.822, 312.706, 63.95, 1.574)
+  }
+  dend[513] {pt3dclear()
+	pt3dadd(109.204, 287.322, 60.25, 3.15)
+	pt3dadd(98.543, 293.384, 65.35, 1.574)
+  }
+  dend[514] {pt3dclear()
+	pt3dadd(98.543, 293.384, 65.35, 1.574)
+	pt3dadd(91.119, 295.108, 64.95, 0.788)
+	pt3dadd(87.386, 297.671, 64.95, 0.788)
+  }
+  dend[515] {pt3dclear()
+	pt3dadd(98.543, 293.384, 65.35, 1.574)
+	pt3dadd(99.166, 296.543, 65.35, 1.574)
+	pt3dadd(95.15, 300.187, 65.35, 1.574)
+  }
+  dend[516] {pt3dclear()
+	pt3dadd(105.584, 280.889, 58.85, 3.15)
+	pt3dadd(103.017, 283.554, 60.85, 1.574)
+  }
+  dend[517] {pt3dclear()
+	pt3dadd(103.982, 279.59, 59.55, 3.15)
+	pt3dadd(104.803, 275.228, 59.55, 1.574)
+  }
+  dend[518] {pt3dclear()
+	pt3dadd(97.342, 275.611, 55.65, 3.15)
+	pt3dadd(96.02, 277.974, 58.35, 1.574)
+	pt3dadd(96.316, 280.65, 57.25, 1.574)
+  }
+  dend[519] {pt3dclear()
+	pt3dadd(97.994, 255.282, 50.55, 3.15)
+	pt3dadd(101.602, 259.613, 47.65, 1.574)
+  }
+  dend[520] {pt3dclear()
+	pt3dadd(101.602, 259.613, 47.65, 1.574)
+	pt3dadd(103.584, 261.751, 49.55, 0.788)
+  }
+  dend[521] {pt3dclear()
+	pt3dadd(103.584, 261.751, 49.55, 0.788)
+	pt3dadd(106.677, 260.324, 49.55, 0.788)
+  }
+  dend[522] {pt3dclear()
+	pt3dadd(103.584, 261.751, 49.55, 0.788)
+	pt3dadd(104.697, 264.807, 50.45, 0.788)
+  }
+  dend[523] {pt3dclear()
+	pt3dadd(101.602, 259.613, 47.65, 1.574)
+	pt3dadd(98.383, 261.311, 45.25, 0.788)
+  }
+  dend[524] {pt3dclear()
+	pt3dadd(100.478, 236.469, 31.75, 4.724)
+	pt3dadd(95.361, 235.848, 34.55, 1.574)
+  }
+  dend[525] {pt3dclear()
+	pt3dadd(95.361, 235.848, 34.55, 1.574)
+	pt3dadd(84.771, 237.972, 34.55, 1.574)
+	pt3dadd(77.59, 243.671, 34.55, 0.788)
+  }
+  dend[526] {pt3dclear()
+	pt3dadd(95.361, 235.848, 34.55, 1.574)
+	pt3dadd(94.327, 232.387, 34.55, 0.788)
+  }
+  dend[527] {pt3dclear()
+	pt3dadd(105.479, 232.843, 30.65, 4.724)
+	pt3dadd(109.317, 239.046, 37.65, 3.15)
+  }
+  dend[528] {pt3dclear()
+	pt3dadd(109.317, 239.046, 37.65, 3.15)
+	pt3dadd(110.018, 241.801, 37.65, 3.15)
+	pt3dadd(110.569, 245.588, 42.55, 3.15)
+  }
+  dend[529] {pt3dclear()
+	pt3dadd(110.569, 245.588, 42.55, 3.15)
+	pt3dadd(110.31, 247.564, 43.35, 3.15)
+  }
+  dend[530] {pt3dclear()
+	pt3dadd(110.31, 247.564, 43.35, 3.15)
+	pt3dadd(111.031, 252.644, 43.95, 3.15)
+	pt3dadd(117.069, 264.067, 51.95, 3.15)
+	pt3dadd(119.35, 273.847, 56.75, 2.362)
+	pt3dadd(121.876, 277.893, 60.55, 1.574)
+  }
+  dend[531] {pt3dclear()
+	pt3dadd(121.876, 277.893, 60.55, 1.574)
+	pt3dadd(126.407, 280.007, 59.75, 1.574)
+	pt3dadd(131.628, 282.772, 59.75, 1.574)
+  }
+  dend[532] {pt3dclear()
+	pt3dadd(121.876, 277.893, 60.55, 1.574)
+	pt3dadd(121.611, 281.301, 60.55, 1.574)
+  }
+  dend[533] {pt3dclear()
+	pt3dadd(121.611, 281.301, 60.55, 1.574)
+	pt3dadd(125.214, 288.718, 60.55, 1.574)
+	pt3dadd(127.849, 293.478, 60.55, 0.788)
+  }
+  dend[534] {pt3dclear()
+	pt3dadd(121.611, 281.301, 60.55, 1.574)
+	pt3dadd(120.23, 288.049, 62.95, 0.788)
+  }
+  dend[535] {pt3dclear()
+	pt3dadd(110.31, 247.564, 43.35, 3.15)
+	pt3dadd(117.415, 247.236, 46.05, 1.574)
+  }
+  dend[536] {pt3dclear()
+	pt3dadd(110.569, 245.588, 42.55, 3.15)
+	pt3dadd(104.003, 247.602, 42.35, 0.788)
+  }
+  dend[537] {pt3dclear()
+	pt3dadd(109.317, 239.046, 37.65, 3.15)
+	pt3dadd(115.944, 239.268, 37.75, 0.788)
+  }
+  dend[538] {pt3dclear()
+	pt3dadd(109.392, 227.054, 26.15, 3.936)
+	pt3dadd(105.814, 222.186, 29.85, 1.574)
+	pt3dadd(99.47, 220.883, 27.15, 1.574)
+  }
+  dend[539] {pt3dclear()
+	pt3dadd(126.496, 212.852, 7.15, 6.3)
+	pt3dadd(130.358, 218.294, 19.55, 3.15)
+	pt3dadd(132.456, 223.024, 20.05, 2.362)
+	pt3dadd(137.863, 222.787, 20.95, 3.15)
+	pt3dadd(144.799, 224.476, 37.35, 3.15)
+	pt3dadd(146.788, 230.148, 37.35, 3.15)
+  }
+  dend[540] {pt3dclear()
+	pt3dadd(126.586, 189.944, 0.55, 7.086)
+	pt3dadd(134.686, 185.115, 14.25, 1.574)
+  }
+  dend[541] {pt3dclear()
+	pt3dadd(134.686, 185.115, 14.25, 1.574)
+	pt3dadd(139.338, 186.732, 16.75, 1.574)
+  }
+  dend[542] {pt3dclear()
+	pt3dadd(139.338, 186.732, 16.75, 1.574)
+	pt3dadd(142.873, 186.725, 19.25, 0.788)
+  }
+  dend[543] {pt3dclear()
+	pt3dadd(142.873, 186.725, 19.25, 0.788)
+	pt3dadd(147.628, 190.488, 20.15, 0.788)
+	pt3dadd(151.803, 191, 20.15, 0.788)
+	pt3dadd(157.094, 189.826, 22.65, 0.788)
+  }
+  dend[544] {pt3dclear()
+	pt3dadd(157.094, 189.826, 22.65, 0.788)
+	pt3dadd(158.03, 186.401, 24.75, 0.788)
+  }
+  dend[545] {pt3dclear()
+	pt3dadd(157.094, 189.826, 22.65, 0.788)
+	pt3dadd(159.451, 190.925, 24.95, 0.788)
+  }
+  dend[546] {pt3dclear()
+	pt3dadd(142.873, 186.725, 19.25, 0.788)
+	pt3dadd(147.028, 183.256, 19.25, 0.788)
+  }
+  dend[547] {pt3dclear()
+	pt3dadd(139.338, 186.732, 16.75, 1.574)
+	pt3dadd(139.464, 181.495, 16.75, 0.788)
+	pt3dadd(142.121, 178.872, 15.85, 0.788)
+  }
+  dend[548] {pt3dclear()
+	pt3dadd(134.686, 185.115, 14.25, 1.574)
+	pt3dadd(134.534, 179.527, 13.85, 0.788)
+  }
+  dend[549] {pt3dclear()
+	pt3dadd(125.957, 184.906, -1.45, 7.874)
+	pt3dadd(116.044, 187.235, 11.25, 1.574)
+	pt3dadd(106.875, 193.883, 16.05, 1.574)
+  }
+  dend[550] {pt3dclear()
+	pt3dadd(106.875, 193.883, 16.05, 1.574)
+	pt3dadd(103.934, 195.931, 16.65, 1.574)
+  }
+  dend[551] {pt3dclear()
+	pt3dadd(103.934, 195.931, 16.65, 1.574)
+	pt3dadd(99.621, 198.555, 16.65, 1.574)
+	pt3dadd(93.442, 201.631, 15.15, 0.788)
+  }
+  dend[552] {pt3dclear()
+	pt3dadd(103.934, 195.931, 16.65, 1.574)
+	pt3dadd(98.146, 195.329, 12.75, 0.788)
+  }
+  dend[553] {pt3dclear()
+	pt3dadd(106.875, 193.883, 16.05, 1.574)
+	pt3dadd(104.318, 188.718, 13.75, 0.788)
+  }
+  dend[554] {pt3dclear()
+	pt3dadd(77.108, 145.797, -41.45, 7.086)
+	pt3dadd(76.657, 152.207, -31.15, 3.15)
+	pt3dadd(75.722, 157.288, -26.85, 7.086)
+	pt3dadd(78.407, 168.802, -17.75, 6.3)
+	pt3dadd(77.388, 174.064, -15.75, 6.3)
+  }
+  dend[555] {pt3dclear()
+	pt3dadd(77.388, 174.064, -15.75, 6.3)
+	pt3dadd(75.638, 180.42, -14.35, 7.874)
+	pt3dadd(67.674, 196.788, -6.95, 7.874)
+  }
+  dend[556] {pt3dclear()
+	pt3dadd(67.674, 196.788, -6.95, 7.874)
+	pt3dadd(62.083, 206.649, 2.75, 6.3)
+	pt3dadd(59.893, 214.896, 5.65, 4.724)
+	pt3dadd(56.354, 219.645, 8.25, 4.724)
+  }
+  dend[557] {pt3dclear()
+	pt3dadd(56.354, 219.645, 8.25, 4.724)
+	pt3dadd(57.256, 226.465, 16.15, 3.936)
+  }
+  dend[558] {pt3dclear()
+	pt3dadd(57.256, 226.465, 16.15, 3.936)
+	pt3dadd(49.309, 238.538, 22.45, 3.936)
+  }
+  dend[559] {pt3dclear()
+	pt3dadd(49.309, 238.538, 22.45, 3.936)
+	pt3dadd(48.621, 239.541, 22.45, 3.936)
+	pt3dadd(46.87, 244.242, 26.85, 4.724)
+  }
+  dend[560] {pt3dclear()
+	pt3dadd(46.87, 244.242, 26.85, 4.724)
+	pt3dadd(44.255, 245.119, 26.25, 4.724)
+  }
+  dend[561] {pt3dclear()
+	pt3dadd(44.255, 245.119, 26.25, 4.724)
+	pt3dadd(44.46, 246.097, 26.25, 3.936)
+	pt3dadd(36.972, 255.294, 36.05, 3.936)
+  }
+  dend[562] {pt3dclear()
+	pt3dadd(36.972, 255.294, 36.05, 3.936)
+	pt3dadd(34.804, 256.159, 34.75, 3.15)
+  }
+  dend[563] {pt3dclear()
+	pt3dadd(34.804, 256.159, 34.75, 3.15)
+	pt3dadd(30.099, 260.806, 39.05, 3.15)
+  }
+  dend[564] {pt3dclear()
+	pt3dadd(30.099, 260.806, 39.05, 3.15)
+	pt3dadd(28.929, 267.101, 47.85, 3.15)
+  }
+  dend[565] {pt3dclear()
+	pt3dadd(28.929, 267.101, 47.85, 3.15)
+	pt3dadd(26.368, 269.99, 50.75, 2.362)
+  }
+  dend[566] {pt3dclear()
+	pt3dadd(26.368, 269.99, 50.75, 2.362)
+	pt3dadd(25.717, 273.989, 56.35, 3.15)
+  }
+  dend[567] {pt3dclear()
+	pt3dadd(25.717, 273.989, 56.35, 3.15)
+	pt3dadd(21.406, 281.578, 60.35, 2.362)
+	pt3dadd(20.041, 285.686, 65.65, 2.362)
+  }
+  dend[568] {pt3dclear()
+	pt3dadd(20.041, 285.686, 65.65, 2.362)
+	pt3dadd(13.971, 289.476, 69.65, 1.574)
+  }
+  dend[569] {pt3dclear()
+	pt3dadd(20.041, 285.686, 65.65, 2.362)
+	pt3dadd(22.326, 289.069, 68.95, 1.574)
+	pt3dadd(22.315, 291.932, 68.95, 1.574)
+  }
+  dend[570] {pt3dclear()
+	pt3dadd(25.717, 273.989, 56.35, 3.15)
+	pt3dadd(27.054, 280.35, 57.95, 1.574)
+	pt3dadd(27.085, 284.778, 62.35, 1.574)
+  }
+  dend[571] {pt3dclear()
+	pt3dadd(27.085, 284.778, 62.35, 1.574)
+	pt3dadd(29.098, 289.689, 64.35, 0.788)
+  }
+  dend[572] {pt3dclear()
+	pt3dadd(27.085, 284.778, 62.35, 1.574)
+	pt3dadd(24.391, 286.06, 61.75, 0.788)
+  }
+  dend[573] {pt3dclear()
+	pt3dadd(26.368, 269.99, 50.75, 2.362)
+	pt3dadd(31.801, 277.268, 54.75, 0.788)
+  }
+  dend[574] {pt3dclear()
+	pt3dadd(28.929, 267.101, 47.85, 3.15)
+	pt3dadd(21.433, 271.109, 52.75, 1.574)
+	pt3dadd(14.432, 275.237, 54.65, 1.574)
+  }
+  dend[575] {pt3dclear()
+	pt3dadd(30.099, 260.806, 39.05, 3.15)
+	pt3dadd(22.831, 260.065, 38.05, 1.574)
+  }
+  dend[576] {pt3dclear()
+	pt3dadd(22.831, 260.065, 38.05, 1.574)
+	pt3dadd(18.868, 260.755, 38.05, 1.574)
+	pt3dadd(11.98, 257.543, 38.85, 1.574)
+	pt3dadd(3.975, 256.017, 39.05, 0.788)
+  }
+  dend[577] {pt3dclear()
+	pt3dadd(22.831, 260.065, 38.05, 1.574)
+	pt3dadd(17.02, 263.534, 42.45, 1.574)
+	pt3dadd(12.579, 261.463, 50.05, 1.574)
+	pt3dadd(8.641, 264.703, 51.35, 1.574)
+  }
+  dend[578] {pt3dclear()
+	pt3dadd(8.641, 264.703, 51.35, 1.574)
+	pt3dadd(4.884, 264.716, 49.25, 0.788)
+	pt3dadd(1.664, 266.414, 49.25, 0.788)
+  }
+  dend[579] {pt3dclear()
+	pt3dadd(8.641, 264.703, 51.35, 1.574)
+	pt3dadd(4.608, 270.987, 51.35, 0.788)
+  }
+  dend[580] {pt3dclear()
+	pt3dadd(34.804, 256.159, 34.75, 3.15)
+	pt3dadd(38.37, 263.89, 41.25, 2.362)
+	pt3dadd(40.39, 270.68, 46.85, 1.574)
+	pt3dadd(39.884, 276.734, 47.35, 1.574)
+  }
+  dend[581] {pt3dclear()
+	pt3dadd(39.884, 276.734, 47.35, 1.574)
+	pt3dadd(40.007, 282.859, 57.05, 1.574)
+	pt3dadd(38.48, 289.209, 60.05, 1.574)
+  }
+  dend[582] {pt3dclear()
+	pt3dadd(38.48, 289.209, 60.05, 1.574)
+	pt3dadd(32.706, 294.02, 64.55, 0.788)
+  }
+  dend[583] {pt3dclear()
+	pt3dadd(38.48, 289.209, 60.05, 1.574)
+	pt3dadd(39.055, 292.236, 61.25, 0.788)
+	pt3dadd(37.425, 294.785, 61.25, 0.788)
+  }
+  dend[584] {pt3dclear()
+	pt3dadd(39.884, 276.734, 47.35, 1.574)
+	pt3dadd(42.524, 275.096, 50.25, 0.788)
+  }
+  dend[585] {pt3dclear()
+	pt3dadd(36.972, 255.294, 36.05, 3.936)
+	pt3dadd(31.099, 253.218, 35.45, 0.788)
+	pt3dadd(25.692, 253.455, 36.75, 0.788)
+  }
+  dend[586] {pt3dclear()
+	pt3dadd(25.692, 253.455, 36.75, 0.788)
+	pt3dadd(21.457, 252.363, 36.75, 0.788)
+	pt3dadd(16.762, 249.18, 36.75, 0.788)
+  }
+  dend[587] {pt3dclear()
+	pt3dadd(25.692, 253.455, 36.75, 0.788)
+	pt3dadd(27.619, 250.271, 36.75, 0.788)
+  }
+  dend[588] {pt3dclear()
+	pt3dadd(44.255, 245.119, 26.25, 4.724)
+	pt3dadd(37.053, 243.526, 29.35, 0.788)
+	pt3dadd(31.145, 243.419, 27.85, 0.788)
+	pt3dadd(23.532, 241.524, 27.85, 0.788)
+	pt3dadd(16.198, 239.98, 31.55, 0.788)
+  }
+}
+proc shape3d_9() {
+  dend[588] {	pt3dadd(6.072, 237.796, 29.05, 0.788)
+  }
+  dend[589] {pt3dclear()
+	pt3dadd(6.072, 237.796, 29.05, 0.788)
+	pt3dadd(-0.174, 240.069, 29.05, 0.788)
+  }
+  dend[590] {pt3dclear()
+	pt3dadd(6.072, 237.796, 29.05, 0.788)
+	pt3dadd(7.03, 230.298, 29.05, 0.788)
+  }
+  dend[591] {pt3dclear()
+	pt3dadd(46.87, 244.242, 26.85, 4.724)
+	pt3dadd(43.098, 237.187, 26.85, 0.788)
+  }
+  dend[592] {pt3dclear()
+	pt3dadd(49.309, 238.538, 22.45, 3.936)
+	pt3dadd(52.026, 251.17, 35.35, 2.362)
+	pt3dadd(51.26, 255.888, 35.15, 2.362)
+  }
+  dend[593] {pt3dclear()
+	pt3dadd(51.26, 255.888, 35.15, 2.362)
+	pt3dadd(50.203, 258.154, 36.25, 2.362)
+  }
+  dend[594] {pt3dclear()
+	pt3dadd(50.203, 258.154, 36.25, 2.362)
+	pt3dadd(54.151, 268.38, 45.55, 2.362)
+  }
+  dend[595] {pt3dclear()
+	pt3dadd(54.151, 268.38, 45.55, 2.362)
+	pt3dadd(56.375, 271.183, 48.05, 1.574)
+  }
+  dend[596] {pt3dclear()
+	pt3dadd(56.375, 271.183, 48.05, 1.574)
+	pt3dadd(53.804, 278.59, 53.75, 1.574)
+  }
+  dend[597] {pt3dclear()
+	pt3dadd(53.804, 278.59, 53.75, 1.574)
+	pt3dadd(56.222, 283.579, 57.15, 1.574)
+  }
+  dend[598] {pt3dclear()
+	pt3dadd(53.804, 278.59, 53.75, 1.574)
+	pt3dadd(51.237, 281.255, 53.45, 0.788)
+  }
+  dend[599] {pt3dclear()
+	pt3dadd(56.375, 271.183, 48.05, 1.574)
+	pt3dadd(60.103, 271.707, 50.05, 0.788)
+  }
+  dend[600] {pt3dclear()
+	pt3dadd(54.151, 268.38, 45.55, 2.362)
+	pt3dadd(50.793, 269.904, 49.35, 0.788)
+  }
+  dend[601] {pt3dclear()
+	pt3dadd(50.203, 258.154, 36.25, 2.362)
+	pt3dadd(47.498, 263.954, 40.55, 1.574)
+  }
+  dend[602] {pt3dclear()
+	pt3dadd(47.498, 263.954, 40.55, 1.574)
+	pt3dadd(49.59, 268.46, 46.85, 0.788)
+	pt3dadd(51.464, 273.196, 50.55, 0.788)
+  }
+  dend[603] {pt3dclear()
+	pt3dadd(47.498, 263.954, 40.55, 1.574)
+	pt3dadd(46.412, 268.413, 44.05, 0.788)
+  }
+  dend[604] {pt3dclear()
+	pt3dadd(51.26, 255.888, 35.15, 2.362)
+	pt3dadd(46.366, 255.261, 38.15, 0.788)
+  }
+  dend[605] {pt3dclear()
+	pt3dadd(57.256, 226.465, 16.15, 3.936)
+	pt3dadd(57.668, 231.733, 20.55, 1.574)
+	pt3dadd(61.928, 235.375, 23.25, 1.574)
+	pt3dadd(62.614, 244.08, 30.85, 1.574)
+	pt3dadd(65.206, 247.275, 31.45, 1.574)
+  }
+  dend[606] {pt3dclear()
+	pt3dadd(65.206, 247.275, 31.45, 1.574)
+	pt3dadd(66.343, 251.226, 33.35, 1.574)
+  }
+  dend[607] {pt3dclear()
+	pt3dadd(66.343, 251.226, 33.35, 1.574)
+	pt3dadd(67.571, 255.219, 35.15, 1.574)
+  }
+  dend[608] {pt3dclear()
+	pt3dadd(67.571, 255.219, 35.15, 1.574)
+	pt3dadd(68.267, 259.405, 40.05, 1.574)
+  }
+  dend[609] {pt3dclear()
+	pt3dadd(68.267, 259.405, 40.05, 1.574)
+	pt3dadd(70.804, 260.588, 39.45, 1.574)
+  }
+  dend[610] {pt3dclear()
+	pt3dadd(70.804, 260.588, 39.45, 1.574)
+	pt3dadd(68.015, 266.57, 44.85, 1.574)
+  }
+  dend[611] {pt3dclear()
+	pt3dadd(68.015, 266.57, 44.85, 1.574)
+	pt3dadd(67.116, 271.337, 45.95, 1.574)
+  }
+  dend[612] {pt3dclear()
+	pt3dadd(68.015, 266.57, 44.85, 1.574)
+	pt3dadd(63.69, 267.091, 42.85, 0.788)
+	pt3dadd(62.893, 269.036, 42.85, 0.788)
+  }
+  dend[613] {pt3dclear()
+	pt3dadd(70.804, 260.588, 39.45, 1.574)
+	pt3dadd(74.599, 261.916, 39.95, 0.788)
+  }
+  dend[614] {pt3dclear()
+	pt3dadd(68.267, 259.405, 40.05, 1.574)
+	pt3dadd(63.767, 261.72, 41.25, 0.788)
+  }
+  dend[615] {pt3dclear()
+	pt3dadd(67.571, 255.219, 35.15, 1.574)
+	pt3dadd(64.122, 256.7, 37.65, 0.788)
+  }
+  dend[616] {pt3dclear()
+	pt3dadd(66.343, 251.226, 33.35, 1.574)
+	pt3dadd(68.367, 249.963, 33.15, 0.788)
+  }
+  dend[617] {pt3dclear()
+	pt3dadd(65.206, 247.275, 31.45, 1.574)
+	pt3dadd(68.776, 245.299, 32.15, 0.788)
+  }
+  dend[618] {pt3dclear()
+	pt3dadd(56.354, 219.645, 8.25, 4.724)
+	pt3dadd(50.373, 218.511, 15.85, 1.574)
+	pt3dadd(42.308, 219.716, 13.95, 1.574)
+  }
+  dend[619] {pt3dclear()
+	pt3dadd(42.308, 219.716, 13.95, 1.574)
+	pt3dadd(35.752, 213.9, 15.75, 0.788)
+  }
+  dend[620] {pt3dclear()
+	pt3dadd(42.308, 219.716, 13.95, 1.574)
+	pt3dadd(31.943, 225.144, 16.45, 0.788)
+	pt3dadd(30.264, 227.561, 16.45, 0.788)
+  }
+  dend[621] {pt3dclear()
+	pt3dadd(67.674, 196.788, -6.95, 7.874)
+	pt3dadd(55.184, 186.66, -0.35, 0.788)
+	pt3dadd(47.879, 181.268, 0.55, 0.788)
+  }
+  dend[622] {pt3dclear()
+	pt3dadd(77.388, 174.064, -15.75, 6.3)
+	pt3dadd(71.02, 173.522, -9.75, 0.788)
+	pt3dadd(67.668, 176.924, -11.95, 0.788)
+  }
+  soma[3] {pt3dclear()
+	pt3dstyle(1, -2.09, 196.144, -45.05)
+	pt3dadd(-3.509, 196.585, -46.35, 16.536)
+	pt3dadd(-5.007, 197.432, -45.85, 14.96)
+	pt3dadd(-5.889, 197.903, -44.65, 14.174)
+	pt3dadd(-7.182, 198.073, -44.95, 12.598)
+	pt3dadd(-7.973, 198.586, -44.85, 11.024)
+	pt3dadd(-8.734, 198.562, -44.85, 11.024)
+	pt3dadd(-9.634, 200.019, -46.75, 9.448)
+	pt3dadd(-9.839, 200.695, -44.05, 7.874)
+	pt3dadd(-9.99, 201.728, -46.65, 4.724)
+	pt3dadd(-9.917, 202.755, -46.15, 4.724)
+	pt3dadd(-11.56, 203.203, -46.15, 3.15)
+  }
+}
+proc basic_shape() {
+  shape3d_1()
+  shape3d_2()
+  shape3d_3()
+  shape3d_4()
+  shape3d_5()
+  shape3d_6()
+  shape3d_7()
+  shape3d_8()
+  shape3d_9()
+}
+
+objref all, somatic, axonal, basal
+proc subsets() { local i
+  objref all, somatic, axonal, basal
+  all = new SectionList()
+    for i=0, 3 soma[i] all.append()
+    for i=0, 26 axon[i] all.append()
+    for i=0, 622 dend[i] all.append()
+
+  somatic = new SectionList()
+    for i=0, 3 soma[i] somatic.append()
+
+  axonal = new SectionList()
+    for i=0, 26 axon[i] axonal.append()
+
+  basal = new SectionList()
+    for i=0, 622 dend[i] basal.append()
+
+}
+proc geom() {
+}
+proc geom_nseg() {
+}
+proc biophys() {
+  forsec all {
+    Ra = 40
+    cm = 0.8
+    insert pas
+      g_pas = 0.0005
+      e_pas = -55
+  }
+}
+access soma
+
+celldef()
